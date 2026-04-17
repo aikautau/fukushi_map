@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.python-version
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# データパイプライン中間生成物（再取得・再生成可能）
+data/raw/
+data/processed/
+data/geodata/
+
+# 公開用 GeoJSON は git 管理する（data/ 直下）
+# data/jigyosho.geojson
+# data/chiiki_houkatsu.geojson
+
+# 旧 QGIS 関連（不要）
+*.qgz
+*.qgz~
+*.qgs~
+output/
+
+# 機密・ローカル設定
+.env
+.env.*
+!.env.example
