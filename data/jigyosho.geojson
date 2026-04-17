@@ -1,11 +1,5 @@
 {
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
-    }
-  },
   "features": [
     {
       "type": "Feature",
@@ -289,7 +283,7 @@
         "service_type": "訪問リハビリテーション",
         "address_full": "大阪府枚方市藤阪中町3-20",
         "tel": "072-868-2070",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -308,7 +302,7 @@
         "service_type": "通所リハビリテーション",
         "address_full": "大阪府枚方市花園町11-3-207メディケアモール2階207号室",
         "tel": "072-868-6800",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -669,7 +663,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市養父東町６５番１号",
         "tel": "072-867-0601",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1125,7 +1119,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市招提平野町５－１１一の谷別館102",
         "tel": "072-867-8151",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1220,7 +1214,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市星ヶ丘3丁目1-15プラ・ディオ星丘ビル4階",
         "tel": "072-805-6556",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1258,7 +1252,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市北中振４丁目８－１５友田ビル３０２号室",
         "tel": "072-800-8954",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1391,7 +1385,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市津田西町3-18-9コンフォルト津田102",
         "tel": "072-808-8352",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1467,7 +1461,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市宮之阪2丁目3-9",
         "tel": "072-807-7410",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1486,7 +1480,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市渚西1丁目17-5",
         "tel": "072-894-7187",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1619,7 +1613,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市岡本町10番25号桃寿苑枚方",
         "tel": "072-841-8808",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1638,7 +1632,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市牧野阪1丁目12-10マルエス牧野ビル3階",
         "tel": "072-807-7682",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1676,7 +1670,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市東香里新町4-15シャトー東香里103",
         "tel": "050-8886-3370",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1695,7 +1689,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市星丘4丁目18－9",
         "tel": "072-395-1565",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1714,7 +1708,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市走谷二丁目36番4号",
         "tel": "072-843-1205",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1733,7 +1727,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市星丘三丁目１番４３号",
         "tel": "072-894-7769",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1752,7 +1746,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市宇山東7-7",
         "tel": "072-856-1120",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1771,7 +1765,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市東田宮1丁目11-30田中ビル201号",
         "tel": "072-808-7284",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1790,7 +1784,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市東香里南町8⁻15IKOIナーシングホーム東香里",
         "tel": "072-896-8886",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1809,7 +1803,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市長尾元町一丁目33番地67号2階",
         "tel": "072-896-9177",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1847,7 +1841,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市長尾元町7丁目21-6共栄ハイツ第5　106号室",
         "tel": "080-7521-0681",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1866,7 +1860,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市楠葉朝日1丁目21-8ケアスペース朝日201",
         "tel": "072-809-7810",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -1923,7 +1917,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市養父東町６５番１号",
         "tel": "072-850-8828",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -2018,7 +2012,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市養父東町６５番１号",
         "tel": "072-867-0555",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -2113,7 +2107,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市大字尊延寺４５９２番地の３８ケアハウス　雅の苑",
         "tel": "072-896-1280",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -2968,7 +2962,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市招提平野町8-30",
         "tel": "072-864-0771",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -3215,7 +3209,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "枚方市印田町25-4",
         "tel": "072-848-2453",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -3272,7 +3266,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市楠葉朝日一丁目21-8２Ｆ２０１",
         "tel": "072-809-7810",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -3804,7 +3798,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市長尾元町３丁目２３番３号",
         "tel": "072-864-0666",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -4146,7 +4140,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市星丘3丁目25番4号",
         "tel": "072-805-6855",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -4355,7 +4349,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "枚方市新町２丁目１番３５号枚方市立総合福祉会館内４F",
         "tel": "072-841-6427",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -4735,7 +4729,7 @@
         "service_type": "居宅介護支援; 訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市東船橋２丁目１２１番９",
         "tel": "072-855-4821",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -5153,7 +5147,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市大峰元町一丁目1番1号",
         "tel": "072-858-8565",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -5248,7 +5242,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市田口１-19-3",
         "tel": "072-805-0870",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -5324,7 +5318,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市伊加賀北町４番３号",
         "tel": "072-861-3333",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -5723,7 +5717,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市三矢町3番12号",
         "tel": "072-846-1900",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -5837,7 +5831,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "枚方市山之上北町１０番1号ラガーハイツ　1階",
         "tel": "072-843-4165",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -5951,7 +5945,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市高田2-13-1すずらんビル2F",
         "tel": "072-808-8235",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -6217,7 +6211,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市長尾家具町２丁目８－９",
         "tel": "072-851-3317",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -6331,7 +6325,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市北中振３－３１－２１",
         "tel": "072-802-8885",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -6578,7 +6572,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市招提元町1丁目5-1",
         "tel": "072-855-2369",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -6749,7 +6743,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市東山１丁目６１－１",
         "tel": "０７２－８６５－４９８１",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -6806,7 +6800,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市北中振3-24-31KYﾋﾞﾙ2階北側",
         "tel": "072-831-3105",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -6863,7 +6857,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市楠葉朝日２－９－５",
         "tel": "０７２－８９４－８８５０",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7148,7 +7142,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市藤阪東町三丁目5-8",
         "tel": "072-858-1511",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7167,7 +7161,7 @@
         "service_type": "居宅介護支援",
         "address_full": "枚方市藤阪東町三丁目5-8",
         "tel": "072-858-1513",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7338,7 +7332,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市杉山手1-30-20",
         "tel": "072-858-5606",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7566,7 +7560,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市伊加賀南町9番25アンブラッセ枚方公園1階事務所内",
         "tel": "072-896-5741",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7604,7 +7598,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市高野道2丁目41-32",
         "tel": "0120-810-510",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7642,7 +7636,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市養父西町8番12号",
         "tel": "090-3848-1760",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7737,7 +7731,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市中宮大池2-10-1",
         "tel": "072-840-1564",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -7851,7 +7845,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市中宮西之町４－１５",
         "tel": "072-805-0361",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8060,7 +8054,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市中宮山戸町25番10号",
         "tel": "072-807-3417",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8155,7 +8149,7 @@
         "service_type": "訪問介護",
         "address_full": "大阪府枚方市北中振2-3-36双葉マンション104号室",
         "tel": "072-832-5002",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8174,7 +8168,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市楠葉野田1丁目29-16-202",
         "tel": "072-836-3337",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8516,7 +8510,7 @@
         "service_type": "短期入所生活介護; 短期入所生活介護（ショートステイ）",
         "address_full": "大阪府枚方市藤阪南町２丁目30-1",
         "tel": "072-868-2192",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8592,7 +8586,7 @@
         "service_type": "短期入所生活介護; 短期入所生活介護（ショートステイ）",
         "address_full": "大阪府枚方市渚西1丁目24番1号",
         "tel": "072－890－0111",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8668,7 +8662,7 @@
         "service_type": "特定施設入居者生活介護（有料老人ホーム・軽費老人ホーム等）; 特定施設入居者生活介護（有料老人ホーム）",
         "address_full": "大阪府枚方市出口1-5-50",
         "tel": "072-861-3711",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8706,7 +8700,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市長尾宮前1-1-5-202",
         "tel": "072-845-6303",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8725,7 +8719,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市高田2-24-18",
         "tel": "072-800-1718",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8782,7 +8776,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市春日東町二丁目28-2東ハイム　103号室",
         "tel": "072-897-5039",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8820,7 +8814,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市出口2丁目３７－１２",
         "tel": "0723957417",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -8953,7 +8947,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市招提平野町5-11-102",
         "tel": "072-867-8151",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9390,7 +9384,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市香里ケ丘6丁目8番",
         "tel": "072-853-5100",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9409,7 +9403,7 @@
         "service_type": "通所介護; 通所介護（デイサービス）",
         "address_full": "大阪府枚方市茄子作1-43-35",
         "tel": "072-854-6644",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9428,7 +9422,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市茄子作１丁目43-35",
         "tel": "072-854-6668",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9447,7 +9441,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市岡本町11-6アサヒビル1階",
         "tel": "072-844-6363",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9466,7 +9460,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市楠葉中町８番15-305メロディハイム楠葉７番館305号",
         "tel": "080-3856-5646",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9580,7 +9574,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市牧野本町一丁目１０番３６号１F",
         "tel": "072-866-2940",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9713,7 +9707,7 @@
         "service_type": "短期入所生活介護; 短期入所生活介護（ショートステイ）",
         "address_full": "大阪府枚方市長尾荒阪1-2804-14",
         "tel": "072-868-1893",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -9846,7 +9840,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市長尾家具町４丁目３番地の５",
         "tel": "072-845-4534",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10017,7 +10011,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市樋之上町５番23-201号",
         "tel": "072-836-9400",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10074,7 +10068,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市招提南町3丁目11-9",
         "tel": "072-808-7431",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10131,7 +10125,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "枚方市伊加賀東町６番１号ハイコート枚方３０２号室",
         "tel": "072-808-7872",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10245,7 +10239,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市杉一丁目34番26号",
         "tel": "0774-86-6066",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10264,7 +10258,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市小倉東町3番5号",
         "tel": "072-391-6630",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10340,7 +10334,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市春日東町2-31-10",
         "tel": "072-859-5522",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10359,7 +10353,7 @@
         "service_type": "通所介護; 通所介護（デイサービス）",
         "address_full": "大阪府枚方市招提元町2-8-26有馬パレス招堤1階",
         "tel": "072-894-7835",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10378,7 +10372,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市池之宮一丁目17番36号",
         "tel": "072-808-6062",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10416,7 +10410,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市楠葉花園町11-3くずはメディケアモール208号",
         "tel": "072-894-7215",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10530,7 +10524,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市田口山一丁目35番12号山田池住宅12号棟407号室",
         "tel": "09018279860",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10549,7 +10543,7 @@
         "service_type": "通所介護; 通所介護（デイサービス）",
         "address_full": "大阪府枚方市岡本町10番25号",
         "tel": "072-841-8821",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10587,7 +10581,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市津田元町1-15-5アルコーブ岡本102",
         "tel": "072-845-4071",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10701,7 +10695,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市津田北町３丁目３０番１号",
         "tel": "072-800-1852",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10758,7 +10752,7 @@
         "service_type": "介護老人福祉施設; 介護老人福祉施設（特別養護老人ホーム）; 短期入所生活介護; 短期入所生活介護（ショートステイ）",
         "address_full": "大阪府枚方市東香里1丁目18番12号",
         "tel": "072-853-1881",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10910,7 +10904,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市津田元町二丁目１１番１２号",
         "tel": "072-894-9920",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10948,7 +10942,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市村野本町24番69号",
         "tel": "072-890-7757",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10967,7 +10961,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市長尾谷町3丁目17番24号ながおさくら鍼灸整骨院2階",
         "tel": "072-845-6013",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -10986,7 +10980,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市宇山東町7番7号",
         "tel": "072-856-1120",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11005,7 +10999,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市岡山手町6番10号岡山手ハイツ13号室",
         "tel": "072-894-7088",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11062,7 +11056,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市茄子作北町54-20掃部マンション203号室",
         "tel": "072-807-5469",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11081,7 +11075,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市星丘４丁目21番10号ひかりハイツ１０５号室",
         "tel": "072-896-8197",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11176,7 +11170,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市牧野阪2丁目19番16号ラ・フェスタ牧野211号",
         "tel": "070-9161-4776",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11214,7 +11208,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市津田西町1-26-10マンションタイムⅡ　102",
         "tel": "072-808-6091",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11233,7 +11227,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市堤町5番9号",
         "tel": "072-845-5914",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11328,7 +11322,7 @@
         "service_type": "訪問入浴; 訪問入浴介護",
         "address_full": "大阪府枚方市楠葉花園町14-1",
         "tel": "072-868-0015",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11347,7 +11341,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市楠葉花園町14-1",
         "tel": "072-868-0015",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11366,7 +11360,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市東中振一丁目58番24号",
         "tel": "072-865-3731",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11499,7 +11493,7 @@
         "service_type": "訪問介護; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市高田二丁目2番17号コーポヒルトップ304号",
         "tel": "072-894-9416",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -11974,7 +11968,7 @@
         "service_type": "小規模多機能型居宅介護",
         "address_full": "大阪府枚方市藤阪南町2丁目30番1号",
         "tel": "072-868-2193",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12088,7 +12082,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市茄子作4丁目34-9メゾンアルパ",
         "tel": "072-807-3183",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12411,7 +12405,7 @@
         "service_type": "地域密着型介護老人福祉施設入所者生活介護",
         "address_full": "大阪府枚方市長尾荒阪1-2804-14",
         "tel": "072-868-1893",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12430,7 +12424,7 @@
         "service_type": "看護小規模多機能型居宅介護（複合型サービス）; 複合型サービス（看護小規模多機能型居宅介護）",
         "address_full": "大阪府枚方市長尾荒阪1-2804-14",
         "tel": "072-868-1894",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12563,7 +12557,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市長尾元町3丁目33－12",
         "tel": "072-845-6552",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12582,7 +12576,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市伊加賀栄町15-30ネクスト枚方",
         "tel": "072-894-7725",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12734,7 +12728,7 @@
         "service_type": "認知症対応型共同生活介護; 認知症対応型共同生活介護（グループホーム）",
         "address_full": "大阪府枚方市村野本町24番69号",
         "tel": "072-800-4074",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12848,7 +12842,7 @@
         "service_type": "介護医療院; 短期入所療養介護; 訪問リハビリ",
         "address_full": "大阪府枚方市津田北町三丁目３０番１号",
         "tel": "072-858-8259",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12867,7 +12861,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市大垣内町三丁目２番２０号１０３",
         "tel": "(072)804-8555",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12886,7 +12880,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市伊加賀西町５１番２５号",
         "tel": "(072)804-5566",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12905,7 +12899,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市西招提町２１９８番地",
         "tel": "(072)867-0210",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12924,7 +12918,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市山之上東町７番１９号",
         "tel": "(072)843-6888",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12943,7 +12937,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市長尾家具町三丁目６番地の１（１１０）",
         "tel": "(072)800-1258",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12962,7 +12956,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市三栗二丁目１４番１号 アデッソ１階１０１Ａ",
         "tel": "(072)864-0662",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -12981,7 +12975,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市牧野阪一丁目１２番１１号 マルエスマンション牧野阪１階１０１号室",
         "tel": "(072)800-1512",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13000,7 +12994,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市長尾家具町四丁目２３番１０号",
         "tel": "(072)855-9001",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13019,7 +13013,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市長尾元町二丁目１３番２８号 プレミアム長尾元町１０５号室",
         "tel": "(072)807-8844",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13038,7 +13032,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市藤阪東町四丁目６番８ー３０３号",
         "tel": "(072)896-8826",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13057,7 +13051,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市田口一丁目３９番３号 共栄ハイツ２１号",
         "tel": "(072)898-5884",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13076,7 +13070,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市出口五丁目７０番１号",
         "tel": "(072)833-1123",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13095,7 +13089,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市藤阪中町４番８号 コーポ忠栄１０３号",
         "tel": "(072)864-0737",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13114,7 +13108,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市田口山一丁目３５番１０ー２０５号",
         "tel": "(072)896-6727",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13133,7 +13127,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市渚西一丁目６番１号 メロディーハイム御殿山４０７",
         "tel": "(072)807-7893",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13152,7 +13146,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市山田池東町２１番１号 フロリアート枚方１０２号室",
         "tel": "(072)894-7118",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13171,7 +13165,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市山之上五丁目４７番７号",
         "tel": "(072)896-9075",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13190,7 +13184,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市田口山二丁目３３番１号 アルビオンハイツ１１号",
         "tel": "(072)896-8191",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13209,7 +13203,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市津田駅前一丁目１３番１号 プレッソ津田駅前２０２号",
         "tel": "(072)858-8500",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13228,7 +13222,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市走谷二丁目７番１２ー２０２号",
         "tel": "(072)300-2488",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13247,7 +13241,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市津田駅前二丁目２６番１ー２０２号 河原ハイツ",
         "tel": "(080)5328-7613",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13266,7 +13260,7 @@
         "service_type": "訪問看護",
         "address_full": "大阪府枚方市御殿山町１５番１５ー２０３号",
         "tel": "(072)800-1519",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13285,7 +13279,7 @@
         "service_type": "認知症対応型共同生活介護（グループホーム）",
         "address_full": "大阪府枚方市長尾元町一丁目３３番１２号",
         "tel": "(072)866-5959",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13304,7 +13298,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市長尾台二丁目１番２６号",
         "tel": "(072)897-0080",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13323,7 +13317,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市茄子作一丁目１番１７ー１０１号",
         "tel": "(072)853-0013",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13342,7 +13336,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市宮之阪三丁目１番２５号",
         "tel": "(072)805-5202",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13361,7 +13355,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市山之上東町７番１９号",
         "tel": "(072)843-6888",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13380,7 +13374,7 @@
         "service_type": "特定施設入居者生活介護（有料老人ホーム・軽費老人ホーム等）",
         "address_full": "大阪府枚方市星丘三丁目１７番１号",
         "tel": "(072)848-2441",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13399,7 +13393,7 @@
         "service_type": "居宅介護支援; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市牧野本町二丁目２４番３号",
         "tel": "(072)800-7801",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13418,7 +13412,7 @@
         "service_type": "特定施設入居者生活介護（有料老人ホーム・軽費老人ホーム等）",
         "address_full": "大阪府枚方市渚西一丁目３２番１号",
         "tel": "(072)848-1184",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13437,7 +13431,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市長尾西町二丁目６７番２号",
         "tel": "(072)851-3904",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13456,7 +13450,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市渚西二丁目７番２０号",
         "tel": "(072)888-5818",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13475,7 +13469,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市東田宮一丁目４番１１号",
         "tel": "(072)861-5051",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13494,7 +13488,7 @@
         "service_type": "居宅介護支援; 訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市長尾家具町二丁目１６番７号 ２Ｆ",
         "tel": "(072)807-3622",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13513,7 +13507,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市宇山町１５番２７号",
         "tel": "(072)807-6668",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13532,7 +13526,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市宇山町１５番２７号",
         "tel": "(072)807-6668",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13551,7 +13545,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市東田宮一丁目３番１２ー１０１号",
         "tel": "(072)860-7935",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13570,7 +13564,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市伊加賀西町６２番３号",
         "tel": "(072)807-4080",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13589,7 +13583,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市村野本町１０番９７号",
         "tel": "(072)848-4754",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13608,7 +13602,7 @@
         "service_type": "特定施設入居者生活介護（有料老人ホーム・軽費老人ホーム等）",
         "address_full": "大阪府枚方市津田西町一丁目２９番７号",
         "tel": "(072)859-8883",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13627,7 +13621,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市楠葉丘一丁目４０番７号",
         "tel": "(072)894-8083",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13646,7 +13640,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市堂山三丁目４番１号",
         "tel": "(072)896-5611",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13665,7 +13659,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市宮之阪三丁目１番３０号 宮之阪ビル１－６号室",
         "tel": "(072)896-6090",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13684,7 +13678,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市楠葉丘一丁目４０番５号",
         "tel": "(072)894-8083",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13703,7 +13697,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市長尾家具町五丁目１０番５４号",
         "tel": "(072)896-5986",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13722,7 +13716,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市伊加賀寿町５番１１号 ＯＤＡ伊加賀ｂｌｄ２０２号室",
         "tel": "(072)807-3674",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13741,7 +13735,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市中宮西之町４番１５号",
         "tel": "(072)805-0333",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13760,7 +13754,7 @@
         "service_type": "短期入所生活介護（ショートステイ）",
         "address_full": "大阪府枚方市中宮西之町４番１５号",
         "tel": "(072)805-0336",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13779,7 +13773,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市高野道二丁目２７番１０号",
         "tel": "(072)850-1663",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13798,7 +13792,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市香里ケ丘八丁目３１番地の２９",
         "tel": "(072)808-8156",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13817,7 +13811,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市王仁公園２番５４号",
         "tel": "(080)5314-5552",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13836,7 +13830,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市中宮北町２番２６号 ポーラ枚方マンション２階",
         "tel": "(072)808-6785",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13855,7 +13849,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市招提中町一丁目２１番９号 Ｓ＆Ｙハイツ２０１",
         "tel": "(072)392-2119",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13874,7 +13868,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市長尾峠町２１番１７号",
         "tel": "(072)857-0247",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13893,7 +13887,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市須山町３９番６号",
         "tel": "(072)845-4103",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13912,7 +13906,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市藤阪東町二丁目１２番１号 Ｓ－ＢＡＳＥ長尾１０２号室",
         "tel": "(072)894-9710",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13931,7 +13925,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市牧野下島町１２番６ー２０１号",
         "tel": "(072)200-2160",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13950,7 +13944,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市長尾家具町四丁目２３番１０号",
         "tel": "(072)855-9001",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13969,7 +13963,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市楠葉美咲三丁目２２番６号 ＲＢビル１０２",
         "tel": "(072)894-9849",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -13988,7 +13982,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市津田元町二丁目５９番３号",
         "tel": "(072)396-5507",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14007,7 +14001,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市出口二丁目２５番１９号",
         "tel": "(072)842-2362",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14026,7 +14020,7 @@
         "service_type": "訪問入浴",
         "address_full": "大阪府枚方市中宮西之町４番１５号",
         "tel": "(072)805-0367",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14045,7 +14039,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市禁野本町一丁目４番１号",
         "tel": "(072)896-8665",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14064,7 +14058,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市北中振一丁目１０番２１ー３０２号",
         "tel": "(072)886-3057",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14083,7 +14077,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市北中振一丁目１０番２１ー３０２号",
         "tel": "(072)886-3057",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14102,7 +14096,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市宮之阪一丁目１１番１３号 牧野ビル３階",
         "tel": "(072)896-6880",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14121,7 +14115,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市中宮西之町５番１０号 和光ハイツ３０２号室",
         "tel": "(050)8884-0926",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14140,7 +14134,7 @@
         "service_type": "特定福祉用具販売; 福祉用具貸与",
         "address_full": "大阪府枚方市牧野本町一丁目１０番３６号 １Ｆ",
         "tel": "(072)866-2940",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14159,7 +14153,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市渚西一丁目６番１号 メロディーハイム御殿山４０７",
         "tel": "(070)3209-8788",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14178,7 +14172,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市禁野本町一丁目８番１６号 禁野ハイツ２０３号室",
         "tel": "(050)8894-3810",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14197,7 +14191,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市渚内野一丁目１４番１１号",
         "tel": "(072)805-3009",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14216,7 +14210,7 @@
         "service_type": "福祉用具貸与",
         "address_full": "大阪府枚方市走谷二丁目３１番１号",
         "tel": "(072)803-6304",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14235,7 +14229,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市山之上西町１番７号",
         "tel": "(072)896-7989",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14254,7 +14248,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市南楠葉一丁目３０番３０号 リーガルエクセレント１０４",
         "tel": "(090)1268-7897",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14273,7 +14267,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市堂山三丁目２０番２１号",
         "tel": "(072)391-2400",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14292,7 +14286,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市車塚一丁目１番１号 輝きプラザきらら６階インキュベートルーム１２号室",
         "tel": "(072)817-9460",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14311,7 +14305,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市宇山東町７番７号",
         "tel": "(072)856-1120",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14330,7 +14324,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市岡山手町１１番４７号 セヴィア岡山手１０９号室",
         "tel": "(072)896-8715",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14349,7 +14343,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市西禁野一丁目１番２４号 天の川マルビル６階",
         "tel": "(072)847-6668",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14368,7 +14362,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市藤阪東町四丁目５０番４号",
         "tel": "(090)4568-1708",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14387,7 +14381,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市津田東町一丁目６番１４号",
         "tel": "(072)800-1527",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14406,7 +14400,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市養父元町３番１５ー３０７号 ウィスタリア",
         "tel": "(072)845-6507",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14425,7 +14419,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市村野本町２２番２０号",
         "tel": "(072)896-6943",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14444,7 +14438,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市田口山二丁目３３番１号 アルビオンハイツ１１号",
         "tel": "(072)896-8191",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14463,7 +14457,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市長尾元町二丁目１３番２８号 プレミアム長尾元町１０５号室",
         "tel": "(072)894-8476",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14482,7 +14476,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市野村元町２１番１５号",
         "tel": "(072)896-9820",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14501,7 +14495,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市牧野阪二丁目１９番１６号 ラ・フェスタ牧野２１１号室",
         "tel": "(070)9161-4776",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14520,7 +14514,7 @@
         "service_type": "通所介護（デイサービス）",
         "address_full": "大阪府枚方市星丘一丁目１０番２号",
         "tel": "(072)805-2888",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14539,7 +14533,7 @@
         "service_type": "訪問介護（ホームヘルプ）",
         "address_full": "大阪府枚方市山之上西町２７番３０号 ロイヤルハイツさつき丘７０５号室",
         "tel": "(072)896-8016",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14558,7 +14552,7 @@
         "service_type": "居宅介護支援",
         "address_full": "大阪府枚方市津田駅前二丁目２６番１ー２０２号 河原ハイツ",
         "tel": "(090)6052-9555",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14577,7 +14571,7 @@
         "service_type": "認知症対応型通所介護",
         "address_full": "大阪府枚方市磯島元町９番１０号",
         "tel": "(072)805-5567",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14596,7 +14590,7 @@
         "service_type": "認知症対応型通所介護",
         "address_full": "大阪府枚方市春日北町四丁目１番２０号",
         "tel": "(072)859-6117",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14615,7 +14609,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市津田山手一丁目４３番２０号",
         "tel": "(072)859-5531",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14634,7 +14628,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市野村北町６番５号",
         "tel": "(072)894-9225",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14653,7 +14647,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市北山一丁目６７番２４号",
         "tel": "(072)808-6427",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14672,7 +14666,7 @@
         "service_type": "定期巡回・随時対応型訪問介護看護",
         "address_full": "大阪府枚方市山田池東町２１番１号 フロリアート枚方１０２号室",
         "tel": "(072)894-7118",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14691,7 +14685,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市牧野下島町１２番１４号",
         "tel": "(070)2419-2940",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14710,7 +14704,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市町楠葉一丁目２８番３号 ルセルクル１階",
         "tel": "(072)867-7700",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14729,7 +14723,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市招提元町四丁目５０番１０号",
         "tel": "(072)896-8390",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14748,7 +14742,7 @@
         "service_type": "定期巡回・随時対応型訪問介護看護",
         "address_full": "大阪府枚方市藤阪東町一丁目３番１０号",
         "tel": "(072)859-9000",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14767,7 +14761,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市菊丘町４番３号",
         "tel": "(072)808-8346",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14786,7 +14780,7 @@
         "service_type": "地域密着型通所介護",
         "address_full": "大阪府枚方市長尾東町二丁目３５番２２号",
         "tel": "(072)845-6751",
-        "capacity": NaN
+        "capacity": ""
       }
     },
     {
@@ -14805,7 +14799,7 @@
         "service_type": "介護医療院; 短期入所療養介護",
         "address_full": "大阪府枚方市養父東町６５番１号",
         "tel": "(072)800-1554",
-        "capacity": NaN
+        "capacity": ""
       }
     }
   ]

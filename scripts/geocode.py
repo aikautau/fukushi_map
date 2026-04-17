@@ -208,14 +208,19 @@ def to_geojson(df: pd.DataFrame, out_path: Path) -> None:
     geo_df = df.dropna(subset=["lon", "lat"])
     features = []
     for _, row in geo_df.iterrows():
+        def _s(val: object) -> str:
+            if pd.isna(val):
+                return ""
+            return str(val)
+
         props = {
-            "jigyosho_id": row["jigyosho_id"],
-            "name": row["name"],
-            "category": row["category"],
-            "service_type": row["service_type"],
-            "address_full": row["address_full"],
-            "tel": row.get("tel", ""),
-            "capacity": row.get("capacity", ""),
+            "jigyosho_id": _s(row["jigyosho_id"]),
+            "name": _s(row["name"]),
+            "category": _s(row["category"]),
+            "service_type": _s(row["service_type"]),
+            "address_full": _s(row["address_full"]),
+            "tel": _s(row.get("tel", "")),
+            "capacity": _s(row.get("capacity", "")),
         }
         features.append({
             "type": "Feature",
@@ -225,7 +230,6 @@ def to_geojson(df: pd.DataFrame, out_path: Path) -> None:
 
     geojson = {
         "type": "FeatureCollection",
-        "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
         "features": features,
     }
     out_path.parent.mkdir(parents=True, exist_ok=True)
