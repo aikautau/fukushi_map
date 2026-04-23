@@ -15,9 +15,10 @@
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-python scripts/fetch.py       # data/raw/ にダウンロード
-python scripts/normalize.py   # data/processed/jigyosho.csv を生成
-python scripts/geocode.py     # data/processed/jigyosho.geojson を生成
+python scripts/fetch.py                     # data/raw/ にダウンロード
+python scripts/normalize.py                 # data/processed/jigyosho.csv を生成
+python scripts/geocode.py                   # data/processed/jigyosho.geojson を生成
+python scripts/build_geocoding_index.py     # data/geocoding_*.json（ブラウザ検索用辞書）を生成
 
 # === Web マップのローカル確認 ===
 python3 -m http.server 8000
@@ -31,7 +32,7 @@ python3 -m http.server 8000
   - 「厚生労働省 介護サービス情報公表システム」（CC BY 4.0）
   - 「枚方市」（CC BY 2.1 JP）
   - 「国土地理院」（地理院タイル）
-  - 「国土交通省 位置参照情報」（ジオコーディング用）
+  - 「街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）」（ジオコーディング用 — 正式名称での表記が必須）
   - 「国土数値情報（小学校区データ）」（国土交通省）（ポリゴン用）
   - フォーク元: [codeforsapporo/papamama](https://github.com/codeforsapporo/papamama)（MIT License）
 - 生データ（`data/raw/`）は git 管理しない。公開用 GeoJSON（`data/` 直下）は git 管理する。

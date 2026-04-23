@@ -12,6 +12,7 @@
 - 介護事業所のインタラクティブ地図表示（779施設）
 - タップ／クリックで事業所の詳細をポップアップ表示
 - カテゴリ別フィルタリング（居宅支援・デイ・リハ・訪問・多機能/密着型・短期入所・施設・用具）
+- 事業所名検索＋住所ジオコーディング（ツールバー右側の検索ボックス。入力から自動判定して施設・住所を同時サジェスト）
 - 地域包括支援センター管轄区域（13圏域）のポリゴン表示
 - 背景地図の切替
 
@@ -47,9 +48,10 @@ python3 -m http.server 8000
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-python scripts/fetch.py       # 厚労省・枚方市データを取得
-python scripts/normalize.py   # 統一スキーマに正規化
-python scripts/geocode.py     # 位置参照情報で座標を付与
+python scripts/fetch.py                     # 厚労省・枚方市データを取得
+python scripts/normalize.py                 # 統一スキーマに正規化
+python scripts/geocode.py                   # 位置参照情報で座標を付与
+python scripts/build_geocoding_index.py     # ブラウザ検索用の辞書 JSON を生成
 ```
 
 ---
@@ -74,7 +76,7 @@ python scripts/geocode.py     # 位置参照情報で座標を付与
 |--------|------|-----------|
 | 介護事業所データ（一次ソース） | [厚生労働省 介護サービス情報公表システム オープンデータ](https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html) | CC BY 4.0 |
 | 介護事業所データ（補完） | [枚方市 介護サービス事業所一覧](https://www.city.hirakata.osaka.jp/0000037120.html) | CC BY 2.1 JP（「枚方市」表示必須） |
-| ジオコーディング（住所→座標変換） | [国土交通省 位置参照情報](https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi)（街区レベル・大字レベル） | 国土交通省の利用規約に基づく |
+| ジオコーディング（住所→座標変換） | [街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）](https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi) | [国土交通省 位置参照情報利用規約](https://nlftp.mlit.go.jp/isj/agreement.html)に基づき出典明記の上で利用（編集・加工: hukushimap / aikautau） |
 | 背景地図 | [国土地理院 地理院タイル（淡色）](https://maps.gsi.go.jp/development/ichiran.html) | 「国土地理院」表示必須 |
 | 地域包括支援センター管轄区域 | [国土数値情報（小学校区データ）](https://nlftp.mlit.go.jp/ksj/)（国土交通省）を加工して作成 | 国土交通省の利用規約に基づく |
 | 地域包括支援センター圏域情報 | [枚方市 地域包括支援センター](https://www.city.hirakata.osaka.jp/kourei/0000002638.html) | 枚方市 |

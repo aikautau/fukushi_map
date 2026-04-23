@@ -30,7 +30,13 @@
         <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbYougu" checked> <span class="legend-dot" style="background:#607D8B"></span> 用具</label></li>
         <li class="nav-item ms-lg-2"><label class="nav-link py-0"><input type="checkbox" id="cbArea" checked> <i class="bi bi-square" style="color:#1BA466"></i> 圏域</label></li>
       </ul>
-      <div class="d-flex align-items-center gap-2">
+      <div class="d-flex align-items-center gap-2 position-relative" id="searchWrap">
+        <input type="search" id="searchBox" class="form-control form-control-sm"
+               placeholder="事業所名・住所で検索" autocomplete="off"
+               style="width:220px;font-size:.8rem;">
+        <div id="searchSuggest" class="list-group position-absolute"
+             style="top:100%;left:0;width:260px;z-index:1050;display:none;
+                    max-height:300px;overflow-y:auto;"></div>
         <select id="selectArea" class="form-select form-select-sm" style="width:auto;font-size:.8rem;">
           <option value="">圏域を選択…</option>
         </select>
@@ -54,7 +60,7 @@
     <a href="https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html" target="_blank">厚労省 介護サービス情報公表システム</a>(CC BY)・
     <a href="https://www.city.hirakata.osaka.jp/0000037120.html" target="_blank">枚方市</a>(CC BY 2.1)・
     <a href="https://maps.gsi.go.jp/" target="_blank">国土地理院</a>・
-    <a href="https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi" target="_blank">国土交通省 位置参照情報</a>・
+    <a href="https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi" target="_blank">街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）</a>・
     <a href="https://nlftp.mlit.go.jp/ksj/" target="_blank">国土数値情報</a> |
     Fork of <a href="https://github.com/codeforsapporo/papamama" target="_blank">papamama</a> (Code for Sapporo)
   </div>
@@ -63,6 +69,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/ol_style.js"></script>
   <script src="js/hukushimap.js"></script>
+  <script src="js/search.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>

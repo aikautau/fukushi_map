@@ -11,7 +11,7 @@
 | A | 厚労省 介護サービス情報公表システム オープンデータ | https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html | CSV (ZIP, UTF-8) | CC BY 4.0 | 「厚生労働省 介護サービス情報公表システム」 |
 | B | 枚方市 介護サービス事業所一覧 | https://www.city.hirakata.osaka.jp/0000037120.html | Excel (.xlsx) | CC BY 2.1 JP | 「枚方市」 |
 | M | 国土地理院 地理院タイル（淡色） | https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png | XYZ タイル | 国土地理院 利用規約 | 「国土地理院」 |
-| G | 国土交通省 位置参照情報（街区レベル 23.0a / 大字レベル 18.0b） | https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi | CSV | 国土交通省 利用規約 | 「国土交通省 位置参照情報」 |
+| G | 街区レベル位置参照情報（23.0a）／大字・町丁目位置参照情報（18.0b）国土交通省（2024年） | https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi | CSV | [国土交通省 位置参照情報利用規約](https://nlftp.mlit.go.jp/isj/agreement.html) | 「街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）」（正式名称での表記が必須） |
 | S | 国土数値情報 小学校区データ | https://nlftp.mlit.go.jp/ksj/ | GeoJSON | 国土交通省 利用規約 | 「国土数値情報（小学校区データ）」（国土交通省） |
 | H | 枚方市 地域包括支援センター管轄区域 | https://www.city.hirakata.osaka.jp/kourei/0000002638.html | — | 枚方市 | 「枚方市」 |
 
@@ -79,4 +79,13 @@
 #### B. 枚方市 介護サービス事業所一覧
 
 - `data/raw/hirakata/272104_care_service_202603.xlsx` (121.9 KB) — <https://www.city.hirakata.osaka.jp/cmsfiles/contents/0000037/37120/272104_care_service_202603.xlsx>
+
+### 2026-04-23
+
+#### G. 街区レベル位置参照情報・大字・町丁目位置参照情報（国土交通省、2024年）— ブラウザ検索用辞書の生成
+
+- 生成物: `data/geocoding_gaiku.json` (約 1.0 MB)、`data/geocoding_oaza.json` (約 34 KB)、`data/geocoding_towns.json` (約 16 KB)
+- スクリプト: `scripts/build_geocoding_index.py`
+- 用途: ブラウザ側のツールバー検索ボックスで、入力された住所を APIなしでローカル解決するための辞書
+- 備考: 表記ゆれ（招堤↔招提、樟葉↔楠葉、星ケ丘↔星丘、N丁目↔漢数字丁目、ヶ↔ケ）を前処理段階で全展開してキー登録。各 JSON 先頭に `_source` / `_license` / `_processed_by` のメタキーを含める。利用規約: <https://nlftp.mlit.go.jp/isj/agreement.html>
 

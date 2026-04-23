@@ -97,6 +97,27 @@ html, body {
   color: #1565C0;
 }
 
+/* Search suggestion list */
+#searchSuggest {
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  border-radius: 4px;
+  font-size: .8rem;
+}
+#searchSuggest .list-group-item {
+  cursor: pointer;
+  padding: .35rem .6rem;
+  line-height: 1.25;
+}
+#searchSuggest .list-group-item:hover {
+  background: #f0f7ff;
+}
+#searchSuggest .badge {
+  font-size: .65rem;
+  font-weight: normal;
+  padding: .15em .4em;
+  vertical-align: middle;
+}
+
 /* Responsive: smaller nav on mobile */
 @media (max-width: 991px) {
   #nav1 .navbar-nav {
@@ -113,5 +134,16 @@ html, body {
   }
   .ol-popup:after {
     left: 130px;
+  }
+  #searchWrap {
+    width: 100%;
+    margin-top: 4px;
+  }
+  #searchBox {
+    width: 100% !important;
+    flex: 1;
+  }
+  #searchSuggest {
+    width: 100% !important;
   }
 }

@@ -36,28 +36,56 @@
     'cbYougu':    'layerYougu'
   };
 
-  // Load facility GeoJSON
-  fetch('data/jigyosho.geojson')
-    .then(function(r) { return r.json(); })
-    .then(function(geojson) {
-      var format = new ol.format.GeoJSON();
-      var allFeatures = format.readFeatures(geojson, {
-        featureProjection: 'EPSG:3857'
-      });
+  // Load facility GeoJSON + geocoding dictionaries, then init FacilitySearch
+  var allFeatures = [];
 
-      var buckets = {};
-      allFeatures.forEach(function(f) {
-        var cat = f.get('category');
-        var layerName = categoryToLayer[cat];
-        if (!layerName) return;
-        if (!buckets[layerName]) buckets[layerName] = [];
-        buckets[layerName].push(f);
-      });
+  function fetchJson(url) {
+    return fetch(url).then(function(r) { return r.json(); });
+  }
 
-      Object.keys(buckets).forEach(function(name) {
-        hmap.addFacilityLayer(name, buckets[name]);
-      });
+  // 辞書の _ 始まりメタキーを除去
+  function stripMeta(obj) {
+    var out = {};
+    for (var k in obj) {
+      if (obj.hasOwnProperty(k) && k.charAt(0) !== '_') out[k] = obj[k];
+    }
+    return out;
+  }
+
+  Promise.all([
+    fetchJson('data/jigyosho.geojson'),
+    fetchJson('data/geocoding_gaiku.json'),
+    fetchJson('data/geocoding_oaza.json'),
+    fetchJson('data/geocoding_towns.json')
+  ]).then(function(results) {
+    var geojson = results[0];
+    var gaiku = stripMeta(results[1]);
+    var oaza = stripMeta(results[2]);
+    var towns = results[3];
+
+    var format = new ol.format.GeoJSON();
+    allFeatures = format.readFeatures(geojson, {
+      featureProjection: 'EPSG:3857'
     });
+
+    var buckets = {};
+    allFeatures.forEach(function(f) {
+      var cat = f.get('category');
+      var layerName = categoryToLayer[cat];
+      if (!layerName) return;
+      if (!buckets[layerName]) buckets[layerName] = [];
+      buckets[layerName].push(f);
+    });
+    Object.keys(buckets).forEach(function(name) {
+      hmap.addFacilityLayer(name, buckets[name]);
+    });
+
+    var search = new FacilitySearch(hmap, allFeatures, gaiku, oaza, towns);
+    search.attach(
+      document.getElementById('searchBox'),
+      document.getElementById('searchSuggest')
+    );
+  });
 
   // Load area polygons
   fetch('data/chiiki_houkatsu.geojson')
