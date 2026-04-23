@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>枚方市 介護事業所マップ｜hukushimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10/ol.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -11,34 +14,31 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav id="nav1" class="navbar navbar-expand-lg navbar-dark bg-dark px-2 py-1">
-    <span class="navbar-brand mb-0 fs-6">
+  <nav id="nav1" class="navbar navbar-expand-lg px-3 py-2">
+    <span class="navbar-brand mb-0">
       <i class="bi bi-geo-alt-fill"></i> 枚方市 介護事業所マップ
     </span>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-label="メニューを開閉">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navContent">
-      <ul class="navbar-nav me-auto flex-row flex-wrap gap-1 mt-1 mt-lg-0">
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbKyotaku" checked> <span class="legend-dot" style="background:#4CAF50"></span> 居宅支援</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbDay" checked> <span class="legend-dot" style="background:#FF9800"></span> デイ</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbRiha" checked> <span class="legend-dot" style="background:#2196F3"></span> リハ</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbHoumon" checked> <span class="legend-dot" style="background:#9C27B0"></span> 訪問</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbTakinou" checked> <span class="legend-dot" style="background:#F44336"></span> 多機能</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbTanki" checked> <span class="legend-dot" style="background:#00BCD4"></span> 短期</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbShisetsu" checked> <span class="legend-dot" style="background:#795548"></span> 施設</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbYougu" checked> <span class="legend-dot" style="background:#607D8B"></span> 用具</label></li>
-        <li class="nav-item ms-lg-2"><label class="nav-link py-0"><input type="checkbox" id="cbArea" checked> <i class="bi bi-square" style="color:#1BA466"></i> 圏域</label></li>
-        <li class="nav-item"><label class="nav-link py-0"><input type="checkbox" id="cbCenter" checked> <span class="legend-dot" style="background:#0d7a42"></span> 包括センター</label></li>
+      <ul class="navbar-nav me-auto flex-row flex-wrap gap-1 mt-1 mt-lg-0" role="group" aria-label="表示カテゴリ">
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbKyotaku" checked> <span class="legend-dot" style="background:#4CAF50"></span> 居宅支援</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbDay" checked> <span class="legend-dot" style="background:#FF9800"></span> デイ</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbRiha" checked> <span class="legend-dot" style="background:#2196F3"></span> リハ</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbHoumon" checked> <span class="legend-dot" style="background:#9C27B0"></span> 訪問</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbTakinou" checked> <span class="legend-dot" style="background:#F44336"></span> 多機能</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbTanki" checked> <span class="legend-dot" style="background:#00BCD4"></span> 短期</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbShisetsu" checked> <span class="legend-dot" style="background:#795548"></span> 施設</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbYougu" checked> <span class="legend-dot" style="background:#607D8B"></span> 用具</label></li>
+        <li class="nav-item ms-lg-2"><label class="legend-chip"><input type="checkbox" id="cbArea" checked> <span class="legend-square" style="border-color:#1BA466"></span> 圏域</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbCenter" checked> <span class="legend-dot" style="background:#0d7a42"></span> 包括センター</label></li>
       </ul>
       <div class="d-flex align-items-center gap-2 position-relative" id="searchWrap">
-        <input type="search" id="searchBox" class="form-control form-control-sm"
-               placeholder="事業所名・住所で検索" autocomplete="off"
-               style="width:220px;font-size:.8rem;">
-        <div id="searchSuggest" class="list-group position-absolute"
-             style="top:100%;left:0;width:260px;z-index:1050;display:none;
-                    max-height:300px;overflow-y:auto;"></div>
-        <select id="selectArea" class="form-select form-select-sm" style="width:auto;font-size:.8rem;">
+        <input type="search" id="searchBox" class="form-control"
+               placeholder="事業所名・住所で検索" autocomplete="off" aria-label="事業所名または住所で検索">
+        <div id="searchSuggest" class="list-group position-absolute" role="listbox"></div>
+        <select id="selectArea" class="form-select" aria-label="圏域を選択">
           <option value="">圏域を選択…</option>
         </select>
       </div>
@@ -56,15 +56,16 @@
   </div>
 
   <!-- Footer attribution -->
-  <div id="attribution-bar">
-    出典:
-    <a href="https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html" target="_blank">厚労省 介護サービス情報公表システム</a>(CC BY)・
-    <a href="https://www.city.hirakata.osaka.jp/0000037120.html" target="_blank">枚方市</a>(CC BY 2.1)・
-    <a href="https://maps.gsi.go.jp/" target="_blank">国土地理院</a>・
-    <a href="https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi" target="_blank">街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）</a>・
-    <a href="https://nlftp.mlit.go.jp/ksj/" target="_blank">国土数値情報</a> |
-    Fork of <a href="https://github.com/codeforsapporo/papamama" target="_blank">papamama</a> (Code for Sapporo)
-  </div>
+  <footer id="attribution-bar">
+    <span class="attr-label">出典:</span>
+    <a href="https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html" target="_blank" rel="noopener">厚労省 介護サービス情報公表システム</a>(CC BY)・
+    <a href="https://www.city.hirakata.osaka.jp/0000037120.html" target="_blank" rel="noopener">枚方市</a>(CC BY 2.1)・
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">国土地理院</a>・
+    <a href="https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi" target="_blank" rel="noopener">街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）</a>・
+    <a href="https://nlftp.mlit.go.jp/ksj/" target="_blank" rel="noopener">国土数値情報</a>
+    <span class="attr-sep">|</span>
+    Fork of <a href="https://github.com/codeforsapporo/papamama" target="_blank" rel="noopener">papamama</a> (Code for Sapporo)
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/ol@10/dist/ol.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

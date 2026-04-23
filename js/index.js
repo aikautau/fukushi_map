@@ -3,6 +3,17 @@
   hmap.generate([135.673, 34.814], 13);
 
   var map = hmap.map;
+
+  // Keep OL canvas in sync when the container resizes (e.g. navbar collapse
+  // toggling on mobile, viewport rotation). Flex layout already adjusts the
+  // div; this just tells OpenLayers to redraw to match.
+  var mapEl = document.getElementById('map');
+  if (mapEl && typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(function() { map.updateSize(); }).observe(mapEl);
+  } else {
+    window.addEventListener('resize', function() { map.updateSize(); });
+  }
+
   var popupEl = document.getElementById('popup');
   var popupTitle = document.getElementById('popup-title');
   var popupContent = document.getElementById('popup-content');
