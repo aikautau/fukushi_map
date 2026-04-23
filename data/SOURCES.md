@@ -11,6 +11,9 @@
 | A | 厚労省 介護サービス情報公表システム オープンデータ | https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html | CSV (ZIP, UTF-8) | CC BY 4.0 | 「厚生労働省 介護サービス情報公表システム」 |
 | B | 枚方市 介護サービス事業所一覧 | https://www.city.hirakata.osaka.jp/0000037120.html | Excel (.xlsx) | CC BY 2.1 JP | 「枚方市」 |
 | M | 国土地理院 地理院タイル（淡色） | https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png | XYZ タイル | 国土地理院 利用規約 | 「国土地理院」 |
+| M2 | 国土地理院 地理院タイル（航空写真 / シームレス） | https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg | XYZ タイル | 国土地理院 利用規約 | 「国土地理院」 |
+| M3 | MIERUNE Mono タイル | https://tile.mierune.co.jp/mierune_mono/{z}/{x}/{y}.png | XYZ タイル | CC BY（MIERUNE）＋ ODbL（OpenStreetMap contributors） | `Maptiles by MIERUNE, under CC BY. Data by OpenStreetMap contributors, under ODbL.` |
+| M4 | OpenStreetMap 標準タイル | https://tile.openstreetmap.org/{z}/{x}/{y}.png | XYZ タイル | ODbL（OpenStreetMap contributors） | `© OpenStreetMap contributors` |
 | G | 街区レベル位置参照情報（23.0a）／大字・町丁目位置参照情報（18.0b）国土交通省（2024年） | https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi | CSV | [国土交通省 位置参照情報利用規約](https://nlftp.mlit.go.jp/isj/agreement.html) | 「街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）」（正式名称での表記が必須） |
 | S | 国土数値情報 小学校区データ | https://nlftp.mlit.go.jp/ksj/ | GeoJSON | 国土交通省 利用規約 | 「国土数値情報（小学校区データ）」（国土交通省） |
 | H | 枚方市 地域包括支援センター管轄区域 | https://www.city.hirakata.osaka.jp/kourei/0000002638.html | — | 枚方市 | 「枚方市」 |

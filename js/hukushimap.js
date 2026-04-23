@@ -4,16 +4,52 @@ function Hukushimap() {
   this.areaLayer = null;
   this.centerLayer = null;
   this.popup = null;
+  this.baseLayers = {};
+  this.baseLayerLabels = {};
 }
 
 Hukushimap.prototype.generate = function(center, zoom) {
-  var tileLayer = new ol.layer.Tile({
-    source: new ol.source.XYZ({
-      url: 'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
-      attributions: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>'
+  var gsiAttr = '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>';
+  var mierAttr = "Maptiles by <a href='https://mierune.co.jp/' target='_blank' rel='noopener'>MIERUNE</a>, under CC BY. " +
+                 "Data by <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap contributors</a>, under ODbL.";
+
+  this.baseLayers = {
+    'cyberjapan-pale': new ol.layer.Tile({
+      source: new ol.source.XYZ({
+        url: 'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+        attributions: gsiAttr
+      }),
+      name: 'basemap',
+      visible: true
     }),
-    name: 'basemap'
-  });
+    'mierune-mono': new ol.layer.Tile({
+      source: new ol.source.XYZ({
+        url: 'https://tile.mierune.co.jp/mierune_mono/{z}/{x}/{y}.png',
+        attributions: mierAttr
+      }),
+      name: 'basemap',
+      visible: false
+    }),
+    'osm': new ol.layer.Tile({
+      source: new ol.source.OSM(),
+      name: 'basemap',
+      visible: false
+    }),
+    'cyberjapan-photo': new ol.layer.Tile({
+      source: new ol.source.XYZ({
+        url: 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+        attributions: gsiAttr
+      }),
+      name: 'basemap',
+      visible: false
+    })
+  };
+  this.baseLayerLabels = {
+    'cyberjapan-pale': '国土地理院（淡色）',
+    'mierune-mono': '白地図',
+    'osm': 'OpenStreetMap',
+    'cyberjapan-photo': '航空写真'
+  };
 
   var popupEl = document.getElementById('popup');
   this.popup = new ol.Overlay({
@@ -21,9 +57,15 @@ Hukushimap.prototype.generate = function(center, zoom) {
     autoPan: { animation: { duration: 250 } }
   });
 
+  var baseLayers = this.baseLayers;
   this.map = new ol.Map({
     target: 'map',
-    layers: [tileLayer],
+    layers: [
+      baseLayers['cyberjapan-pale'],
+      baseLayers['mierune-mono'],
+      baseLayers['osm'],
+      baseLayers['cyberjapan-photo']
+    ],
     overlays: [this.popup],
     view: new ol.View({
       center: ol.proj.fromLonLat(center),
@@ -34,6 +76,13 @@ Hukushimap.prototype.generate = function(center, zoom) {
     controls: ol.control.defaults.defaults().extend([
       new ol.control.ScaleLine()
     ])
+  });
+};
+
+Hukushimap.prototype.setBasemap = function(key) {
+  var layers = this.baseLayers;
+  Object.keys(layers).forEach(function(k) {
+    layers[k].setVisible(k === key);
   });
 };
 

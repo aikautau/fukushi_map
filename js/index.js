@@ -159,6 +159,22 @@
     hmap.setLayerVisible('centerLayer', this.checked);
   });
 
+  // Basemap dropdown
+  var selectBasemap = document.getElementById('changeBaseMap');
+  if (selectBasemap) {
+    Object.keys(hmap.baseLayerLabels).forEach(function(key) {
+      var opt = document.createElement('option');
+      opt.value = key;
+      opt.textContent = hmap.baseLayerLabels[key];
+      selectBasemap.appendChild(opt);
+    });
+    selectBasemap.value = 'cyberjapan-pale';
+    selectBasemap.addEventListener('change', function(e) {
+      if (!e.target.value) return;
+      hmap.setBasemap(e.target.value);
+    });
+  }
+
   // Area dropdown
   document.getElementById('selectArea').addEventListener('change', function() {
     var val = this.value;

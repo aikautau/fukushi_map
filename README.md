@@ -77,7 +77,9 @@ python scripts/build_geocoding_index.py     # ブラウザ検索用の辞書 JSO
 | 介護事業所データ（一次ソース） | [厚生労働省 介護サービス情報公表システム オープンデータ](https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html) | CC BY 4.0 |
 | 介護事業所データ（補完） | [枚方市 介護サービス事業所一覧](https://www.city.hirakata.osaka.jp/0000037120.html) | CC BY 2.1 JP（「枚方市」表示必須） |
 | ジオコーディング（住所→座標変換） | [街区レベル位置参照情報・大字・町丁目位置参照情報 国土交通省（2024年）](https://nlftp.mlit.go.jp/cgi-bin/isj/dls/_choose_method.cgi) | [国土交通省 位置参照情報利用規約](https://nlftp.mlit.go.jp/isj/agreement.html)に基づき出典明記の上で利用（編集・加工: hukushimap / aikautau） |
-| 背景地図 | [国土地理院 地理院タイル（淡色）](https://maps.gsi.go.jp/development/ichiran.html) | 「国土地理院」表示必須 |
+| 背景地図（切替可） | [国土地理院 地理院タイル（淡色・航空写真）](https://maps.gsi.go.jp/development/ichiran.html) | 「国土地理院」表示必須 |
+| 背景地図（切替可） | [MIERUNE Mono](https://mierune.co.jp/) | CC BY（`Maptiles by MIERUNE, under CC BY.`）＋ 含まれる地図データは [OpenStreetMap contributors](https://www.openstreetmap.org/copyright) の ODbL（`Data by OpenStreetMap contributors, under ODbL.`） |
+| 背景地図（切替可） | [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL（`© OpenStreetMap contributors`） |
 | 地域包括支援センター管轄区域 | [国土数値情報（小学校区データ）](https://nlftp.mlit.go.jp/ksj/)（国土交通省）を加工して作成 | 国土交通省の利用規約に基づく |
 | 地域包括支援センター圏域情報 | [枚方市 地域包括支援センター](https://www.city.hirakata.osaka.jp/kourei/0000002638.html) | 枚方市 |
 
@@ -96,5 +98,7 @@ MIT License — 詳細は [LICENSE.txt](LICENSE.txt) を参照してください
 - [Code for Sapporo](https://github.com/codeforsapporo) — [papamama](https://github.com/codeforsapporo/papamama) プロジェクト
 - 厚生労働省 — 介護サービス情報公表システム オープンデータの公開
 - 枚方市 — 介護サービス事業所一覧のオープンデータ公開
-- 国土地理院 — 地理院タイルの提供
+- 国土地理院 — 地理院タイル（淡色・航空写真）の提供
+- [MIERUNE](https://mierune.co.jp/) — MIERUNE Mono タイル（CC BY）の提供
+- [OpenStreetMap contributors](https://www.openstreetmap.org/copyright) — OpenStreetMap タイルおよび MIERUNE Mono に含まれる地図データ（ODbL）の提供
 - 国土交通省 — 位置参照情報・国土数値情報の公開
