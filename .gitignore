@@ -32,5 +32,8 @@ output/
 .env.*
 !.env.example
 
-# Claude Code のローカル設定（個人用、共有しない）
-.claude/settings.local.json
+# Claude Code のローカル設定・状態（個人用、共有しない）
+.claude/
+
+# 設計・作業メモ（公開リポジトリには含めない）
+plans/
