@@ -1,0 +1,239 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.680105,
+          34.866141
+        ]
+      },
+      "properties": {
+        "area_id": 1,
+        "center_name": "はなまる",
+        "address_full": "大阪府枚方市町楠葉1丁目28番8号",
+        "tel": "072-856-9177",
+        "school_districts": "樟葉北、樟葉、樟葉南",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.673593,
+          34.849739
+        ]
+      },
+      "properties": {
+        "area_id": 2,
+        "center_name": "社協ふれあい",
+        "address_full": "大阪府枚方市上島東町14番1号 上島御浜ビル3階",
+        "tel": "072-850-0344",
+        "school_districts": "樟葉西、牧野",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.666604,
+          34.843786
+        ]
+      },
+      "properties": {
+        "area_id": 3,
+        "center_name": "聖徳園",
+        "address_full": "大阪府枚方市牧野阪2丁目5番1号 上羽ビル204号",
+        "tel": "072-836-5555",
+        "school_districts": "船橋、招堤、平野、殿山第二",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.652301,
+          34.827896
+        ]
+      },
+      "properties": {
+        "area_id": 4,
+        "center_name": "安心苑",
+        "address_full": "大阪府枚方市渚西1丁目6番1号 メロディーハイム御殿山105号",
+        "tel": "072-807-3555",
+        "school_districts": "小倉、西牧野、殿山第一、磯島",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.677276,
+          34.825037
+        ]
+      },
+      "properties": {
+        "area_id": 5,
+        "center_name": "サール・ナート",
+        "address_full": "大阪府枚方市田口3丁目1番5号 サンドール11番館1階",
+        "tel": "072-890-7770",
+        "school_districts": "交北、山田、山田東、禁野",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.655917,
+          34.815629
+        ]
+      },
+      "properties": {
+        "area_id": 6,
+        "center_name": "松徳会",
+        "address_full": "大阪府枚方市宮之阪2丁目2-2 スカイパレス有馬202",
+        "tel": "072-805-2165",
+        "school_districts": "桜丘、桜丘北、中宮、明倫",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.632499,
+          34.799939
+        ]
+      },
+      "properties": {
+        "area_id": 7,
+        "center_name": "美郷会",
+        "address_full": "大阪府枚方市北中振1丁目8-13",
+        "tel": "072-837-3288",
+        "school_districts": "蹉だ、蹉だ西、蹉だ東、伊加賀",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.647353,
+          34.814661
+        ]
+      },
+      "properties": {
+        "area_id": 8,
+        "center_name": "みどり",
+        "address_full": "大阪府枚方市岡東町17番31-201号 枚方松葉ビル2階",
+        "tel": "072-845-2002",
+        "school_districts": "山之上、枚方、枚方第二",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.647411,
+          34.788029
+        ]
+      },
+      "properties": {
+        "area_id": 9,
+        "center_name": "アイリス",
+        "address_full": "大阪府枚方市香里ヶ丘9丁目9番地の1 D47号棟S5号室",
+        "tel": "072-853-1300",
+        "school_districts": "香陽、香里、開成、五常",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.654767,
+          34.781652
+        ]
+      },
+      "properties": {
+        "area_id": 10,
+        "center_name": "大阪高齢者生協",
+        "address_full": "大阪府枚方市東香里元町28番32号 プラ・ディオ東香里101号",
+        "tel": "072-854-8770",
+        "school_districts": "春日、川越、東香里",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.713418,
+          34.82697
+        ]
+      },
+      "properties": {
+        "area_id": 11,
+        "center_name": "パナソニック エイジフリー",
+        "address_full": "大阪府枚方市長尾元町6丁目2番15号 サンビレッジ長尾1階",
+        "tel": "072-864-5607",
+        "school_districts": "菅原、西長尾、長尾",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.699863,
+          34.822675
+        ]
+      },
+      "properties": {
+        "area_id": 12,
+        "center_name": "大潤会",
+        "address_full": "大阪府枚方市長尾谷町3丁目6番20号",
+        "tel": "072-857-0330",
+        "school_districts": "田口山、藤阪、菅原東",
+        "match_level": "gaiku"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.702692,
+          34.808927
+        ]
+      },
+      "properties": {
+        "area_id": 13,
+        "center_name": "東香会",
+        "address_full": "大阪府枚方市津田元町1丁目6番5号",
+        "tel": "072-897-7800",
+        "school_districts": "津田、津田南、氷室",
+        "match_level": "gaiku"
+      }
+    }
+  ]
+}

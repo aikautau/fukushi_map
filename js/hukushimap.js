@@ -2,6 +2,7 @@ function Hukushimap() {
   this.map = null;
   this.facilityLayers = {};
   this.areaLayer = null;
+  this.centerLayer = null;
   this.popup = null;
 }
 
@@ -57,6 +58,16 @@ Hukushimap.prototype.addAreaLayer = function(features) {
   this.map.addLayer(this.areaLayer);
 };
 
+Hukushimap.prototype.addCenterLayer = function(features) {
+  this.centerLayer = new ol.layer.Vector({
+    source: new ol.source.Vector({ features: features }),
+    style: houkatsuCenterStyleFunction,
+    name: 'centerLayer',
+    zIndex: 30
+  });
+  this.map.addLayer(this.centerLayer);
+};
+
 Hukushimap.prototype.setLayerVisible = function(name, visible) {
   var layers = this.map.getLayers();
   layers.forEach(function(layer) {
@@ -94,6 +105,11 @@ function escHtml(str) {
 }
 
 Hukushimap.prototype.getPopupTitle = function(feature) {
+  if (feature.get('area_id') && feature.get('center_name')) {
+    var cname = feature.get('center_name');
+    return '<span style="color:#0d7a42">\u25cf</span> ' +
+           '<strong>\u7b2c' + feature.get('area_id') + '\u570f\u57df ' + escHtml(cname) + '</strong>';
+  }
   var cat = feature.get('category') || '';
   var name = feature.get('name') || '';
   var def = categoryStyles[cat] || { color: '#999' };
@@ -108,6 +124,18 @@ Hukushimap.prototype.getPopupContent = function(feature) {
       rows.push('<tr><th>' + escHtml(label) + '</th><td>' + escHtml(val) + '</td></tr>');
     }
   }
+
+  if (feature.get('area_id') && feature.get('center_name')) {
+    addRow('種別', '地域包括支援センター');
+    addRow('担当校区', feature.get('school_districts'));
+    addRow('住所', feature.get('address_full'));
+    if (feature.get('tel')) {
+      var telC = feature.get('tel');
+      rows.push('<tr><th>電話</th><td><a href="tel:' + escHtml(telC) + '">' + escHtml(telC) + '</a></td></tr>');
+    }
+    return '<table>' + rows.join('') + '</table>';
+  }
+
   addRow('種別', feature.get('category'));
   addRow('サービス', feature.get('service_type'));
   addRow('住所', feature.get('address_full'));

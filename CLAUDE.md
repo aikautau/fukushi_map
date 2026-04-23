@@ -19,6 +19,7 @@ python scripts/fetch.py                     # data/raw/ にダウンロード
 python scripts/normalize.py                 # data/processed/jigyosho.csv を生成
 python scripts/geocode.py                   # data/processed/jigyosho.geojson を生成
 python scripts/build_geocoding_index.py     # data/geocoding_*.json（ブラウザ検索用辞書）を生成
+python scripts/build_houkatsu_centers.py    # data/houkatsu_centers.geojson（地域包括支援センター13か所）を生成
 
 # === Web マップのローカル確認 ===
 python3 -m http.server 8000

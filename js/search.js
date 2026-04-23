@@ -5,6 +5,7 @@ function FacilitySearch(hmap, facilities, gaiku, oaza, towns) {
   this.hmap = hmap;
   this.map = hmap.map;
   this.facilities = facilities;       // ol.Feature[]（全事業所）
+  this.centers = [];                  // ol.Feature[]（地域包括支援センター）
   this.gaiku = gaiku;                 // { "町名\t街区符号": [lon,lat] }
   this.oaza = oaza;                   // { "町名": [lon,lat] }
   this.towns = towns;                 // 町名配列（長さ降順）
@@ -15,6 +16,10 @@ function FacilitySearch(hmap, facilities, gaiku, oaza, towns) {
   this._pinFeature = null;
   this._buildPinLayer();
 }
+
+FacilitySearch.prototype.setCenters = function(centers) {
+  this.centers = centers || [];
+};
 
 FacilitySearch.prototype._buildPinLayer = function() {
   this._pinLayer = new ol.layer.Vector({
@@ -94,6 +99,24 @@ FacilitySearch.prototype._searchFacilities = function(q) {
   return results;
 };
 
+// ── 地域包括支援センターの名前・担当校区マッチ ──
+FacilitySearch.prototype._searchCenters = function(q) {
+  if (!q || !this.centers.length) return [];
+  var nq = this._normalizeInput(q).toLowerCase();
+  if (!nq) return [];
+  var results = [];
+  for (var i = 0; i < this.centers.length; i++) {
+    var f = this.centers[i];
+    var cname = (f.get('center_name') || '');
+    var districts = (f.get('school_districts') || '');
+    var haystack = this._normalizeInput(cname + ' ' + districts).toLowerCase();
+    if (haystack.indexOf(nq) >= 0) {
+      results.push(f);
+    }
+  }
+  return results;
+};
+
 // ── ジオコーディング（scripts/geocode.py の簡易版） ─────
 FacilitySearch.prototype._extractBlock = function(s) {
   if (!s) return '';
@@ -166,24 +189,50 @@ FacilitySearch.prototype._onInput = function(query) {
     return;
   }
 
+  var centerItems = this._searchCenters(q);
   var facItems = this._searchFacilities(q);
   var addrItem = this._geocode(q);
-  this._renderSuggest(q, facItems, addrItem);
+  this._renderSuggest(q, facItems, addrItem, centerItems);
 };
 
 // ── サジェスト描画 ─────────────────────────────
-FacilitySearch.prototype._renderSuggest = function(query, facItems, addrItem) {
+FacilitySearch.prototype._renderSuggest = function(query, facItems, addrItem, centerItems) {
   var self = this;
   var sug = this.suggestEl;
   sug.innerHTML = '';
+  centerItems = centerItems || [];
 
-  if (facItems.length === 0 && !addrItem) {
+  if (facItems.length === 0 && centerItems.length === 0 && !addrItem) {
     var miss = document.createElement('div');
     miss.className = 'list-group-item text-muted';
     miss.textContent = '該当する施設・住所が見つかりません';
     sug.appendChild(miss);
     sug.style.display = 'block';
     return;
+  }
+
+  for (var ci = 0; ci < centerItems.length; ci++) {
+    (function(f) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'list-group-item list-group-item-action';
+      var cname = f.get('center_name') || '';
+      var areaId = f.get('area_id');
+      var districts = f.get('school_districts') || '';
+      btn.innerHTML = '<span class="badge" style="background:#0d7a42">包括</span> ' +
+        '<span class="ms-1">第' + areaId + '圏域 ' + escHtml(cname) + '</span>' +
+        '<small class="text-muted d-block">担当校区: ' + escHtml(districts) + '</small>';
+      btn.addEventListener('click', function() {
+        var cb = document.getElementById('cbCenter');
+        if (cb && !cb.checked) {
+          cb.checked = true;
+          self.hmap.setLayerVisible('centerLayer', true);
+        }
+        self._pickFacility(f);
+        sug.style.display = 'none';
+      });
+      sug.appendChild(btn);
+    })(centerItems[ci]);
   }
 
   if (addrItem) {

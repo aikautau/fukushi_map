@@ -89,3 +89,12 @@
 - 用途: ブラウザ側のツールバー検索ボックスで、入力された住所を APIなしでローカル解決するための辞書
 - 備考: 表記ゆれ（招堤↔招提、樟葉↔楠葉、星ケ丘↔星丘、N丁目↔漢数字丁目、ヶ↔ケ）を前処理段階で全展開してキー登録。各 JSON 先頭に `_source` / `_license` / `_processed_by` のメタキーを含める。利用規約: <https://nlftp.mlit.go.jp/isj/agreement.html>
 
+#### H. 枚方市 地域包括支援センター（13か所）一覧
+
+- 取得元ページ: <https://www.city.hirakata.osaka.jp/kourei/0000002638.html>
+- 取得日: 2026-04-23（ページ掲載の最新名簿）
+- 生成物: `data/raw/hirakata/houkatsu_centers.csv`（手入力した名称・住所・電話・担当校区）、`data/houkatsu_centers.geojson`（13 件すべて 街区レベル位置参照情報でジオコーディング成功）
+- スクリプト: `scripts/build_houkatsu_centers.py`
+- 出典表記: 「枚方市」（CC BY 2.1 JP）＋ 座標解決は G. 街区レベル位置参照情報（国土交通省、2024年）
+- 備考: 第1〜第13 圏域の `center_name`（運営法人名の略称）は既存の `data/chiiki_houkatsu.geojson` のポリゴン `center_name` と同じ値で揃えている。
+

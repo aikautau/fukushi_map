@@ -38,6 +38,7 @@
 
   // Load facility GeoJSON + geocoding dictionaries, then init FacilitySearch
   var allFeatures = [];
+  var search = null;
 
   function fetchJson(url) {
     return fetch(url).then(function(r) { return r.json(); });
@@ -80,11 +81,15 @@
       hmap.addFacilityLayer(name, buckets[name]);
     });
 
-    var search = new FacilitySearch(hmap, allFeatures, gaiku, oaza, towns);
+    search = new FacilitySearch(hmap, allFeatures, gaiku, oaza, towns);
     search.attach(
       document.getElementById('searchBox'),
       document.getElementById('searchSuggest')
     );
+    if (centerFeaturesPending) {
+      search.setCenters(centerFeaturesPending);
+      centerFeaturesPending = null;
+    }
   });
 
   // Load area polygons
@@ -107,6 +112,23 @@
       });
     });
 
+  // Load houkatsu center points
+  var centerFeaturesPending = null;
+  fetch('data/houkatsu_centers.geojson')
+    .then(function(r) { return r.json(); })
+    .then(function(geojson) {
+      var format = new ol.format.GeoJSON();
+      var features = format.readFeatures(geojson, {
+        featureProjection: 'EPSG:3857'
+      });
+      hmap.addCenterLayer(features);
+      if (search) {
+        search.setCenters(features);
+      } else {
+        centerFeaturesPending = features;
+      }
+    });
+
   // Category checkbox handlers
   Object.keys(cbToLayer).forEach(function(cbId) {
     var cb = document.getElementById(cbId);
@@ -119,6 +141,11 @@
   // Area polygon toggle
   document.getElementById('cbArea').addEventListener('change', function() {
     hmap.setLayerVisible('areaLayer', this.checked);
+  });
+
+  // Houkatsu center toggle
+  document.getElementById('cbCenter').addEventListener('change', function() {
+    hmap.setLayerVisible('centerLayer', this.checked);
   });
 
   // Area dropdown

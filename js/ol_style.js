@@ -28,6 +28,32 @@ function facilityStyleFunction(feature) {
 
 var selectedArea = null;
 
+var _centerPinStyle = new ol.style.Style({
+  image: new ol.style.Circle({
+    radius: 9,
+    fill: new ol.style.Fill({ color: '#0d7a42' }),
+    stroke: new ol.style.Stroke({ color: '#fff', width: 2.5 })
+  }),
+  text: new ol.style.Text({
+    text: '包',
+    font: 'bold 11px sans-serif',
+    fill: new ol.style.Fill({ color: '#fff' })
+  })
+});
+
+function houkatsuCenterStyleFunction(feature) {
+  var labelStyle = new ol.style.Style({
+    text: new ol.style.Text({
+      text: feature.get('center_name') || '',
+      font: 'bold 12px sans-serif',
+      offsetY: 18,
+      fill: new ol.style.Fill({ color: '#0d7a42' }),
+      stroke: new ol.style.Stroke({ color: '#fff', width: 3 })
+    })
+  });
+  return [_centerPinStyle, labelStyle];
+}
+
 function areaPolyStyleFunction(feature) {
   var areaId = feature.get('area_id');
   var isSelected = (selectedArea !== null && selectedArea == areaId);
@@ -35,26 +61,14 @@ function areaPolyStyleFunction(feature) {
   if (selectedArea === null) {
     return new ol.style.Style({
       stroke: new ol.style.Stroke({ color: '#1BA466', width: 1.5 }),
-      fill: new ol.style.Fill({ color: 'rgba(27, 164, 102, 0.08)' }),
-      text: new ol.style.Text({
-        text: feature.get('center_name'),
-        font: '12px sans-serif',
-        fill: new ol.style.Fill({ color: '#1BA466' }),
-        stroke: new ol.style.Stroke({ color: '#fff', width: 3 })
-      })
+      fill: new ol.style.Fill({ color: 'rgba(27, 164, 102, 0.08)' })
     });
   }
 
   if (isSelected) {
     return new ol.style.Style({
       stroke: new ol.style.Stroke({ color: '#1BA466', width: 3 }),
-      fill: new ol.style.Fill({ color: 'rgba(27, 164, 102, 0.25)' }),
-      text: new ol.style.Text({
-        text: feature.get('center_name'),
-        font: 'bold 13px sans-serif',
-        fill: new ol.style.Fill({ color: '#0d7a42' }),
-        stroke: new ol.style.Stroke({ color: '#fff', width: 3 })
-      })
+      fill: new ol.style.Fill({ color: 'rgba(27, 164, 102, 0.25)' })
     });
   }
 
