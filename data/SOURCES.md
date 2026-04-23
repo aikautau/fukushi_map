@@ -9,6 +9,7 @@
 | 記号 | ソース | URL | 形式 | ライセンス | 出典表記（必須） |
 | --- | --- | --- | --- | --- | --- |
 | A | 厚労省 介護サービス情報公表システム オープンデータ | https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html | CSV (ZIP, UTF-8) | CC BY 4.0 | 「厚生労働省 介護サービス情報公表システム」 |
+| N | 厚労省 医療情報ネット（ナビイ）オープンデータ 施設票（病院・診療所・歯科診療所） | https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html | CSV (ZIP, UTF-8-BOM) | 公共データ利用規約 第1.0版（PDL1.0）— CC BY 4.0 と同等条件で再配布可 | 「厚生労働省 医療情報ネット（ナビイ）」 |
 | B | 枚方市 介護サービス事業所一覧 | https://www.city.hirakata.osaka.jp/0000037120.html | Excel (.xlsx) | CC BY 2.1 JP | 「枚方市」 |
 | M | 国土地理院 地理院タイル（淡色） | https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png | XYZ タイル | 国土地理院 利用規約 | 「国土地理院」 |
 | M2 | 国土地理院 地理院タイル（航空写真 / シームレス） | https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg | XYZ タイル | 国土地理院 利用規約 | 「国土地理院」 |
@@ -100,4 +101,18 @@
 - スクリプト: `scripts/build_houkatsu_centers.py`
 - 出典表記: 「枚方市」（CC BY 2.1 JP）＋ 座標解決は G. 街区レベル位置参照情報（国土交通省、2024年）
 - 備考: 第1〜第13 圏域の `center_name`（運営法人名の略称）は既存の `data/chiiki_houkatsu.geojson` のポリゴン `center_name` と同じ値で揃えている。
+
+
+### 2026-04-24 08:43 UTC+09:00
+
+#### N. 厚労省 医療情報ネット（ナビイ）オープンデータ （※最初の取得時は M. 見出しで記録されましたが、一次ソース一覧の記号と揃えるため N. に改称。ファイル実体は同一です）
+
+- `data/raw/mhlw_medical/hospital_facility_info_20251201.zip` (740.7 KB) — <https://www.mhlw.go.jp/content/11121000/01-1_hospital_facility_info_20251201.zip>
+- `data/raw/mhlw_medical/clinic_facility_info_20251201.zip` (6,497.1 KB) — <https://www.mhlw.go.jp/content/11121000/02-1_clinic_facility_info_20251201.zip>
+- `data/raw/mhlw_medical/dental_facility_info_20251201.zip` (3,812.3 KB) — <https://www.mhlw.go.jp/content/11121000/03-1_dental_facility_info_20251201.zip>
+
+基準日（公表時点）: 2025-12-01。PDL1.0（公共データ利用規約 第1.0版、CC BY 4.0 と同等条件で再配布可）。
+枚方市分件数: 病院 23、診療所 245、歯科診療所 186（合計 454。座標同梱のためジオコーディング不要）。
+施設票 CSV の主な列: `ID` / `正式名称` / `機関区分` / `都道府県コード` / `市区町村コード` / `所在地` / `所在地座標（緯度・経度）` / `案内用ホームページアドレス` / `合計病床数` 等。
+電話番号・診療科目は同 CSV（施設票）には含まれない（将来的に「診療科時間票」を統合する場合は別途検討）。
 

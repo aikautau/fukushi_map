@@ -23,6 +23,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navContent">
       <ul class="navbar-nav me-auto flex-row flex-wrap gap-1 mt-1 mt-lg-0" role="group" aria-label="表示カテゴリ">
+        <li class="nav-item d-flex align-items-center gap-1">
+          <span class="legend-group-label">介護</span>
+          <button type="button" class="btn btn-sm btn-outline-secondary legend-group-btn" id="btnCareAllOn" aria-label="介護を全て表示">全</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary legend-group-btn" id="btnCareAllOff" aria-label="介護を全て非表示">無</button>
+        </li>
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbKyotaku" checked> <span class="legend-dot" style="background:#4CAF50"></span> 居宅支援</label></li>
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbDay" checked> <span class="legend-dot" style="background:#FF9800"></span> デイ</label></li>
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbRiha" checked> <span class="legend-dot" style="background:#2196F3"></span> リハ</label></li>
@@ -31,6 +36,14 @@
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbTanki" checked> <span class="legend-dot" style="background:#00BCD4"></span> 短期</label></li>
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbShisetsu" checked> <span class="legend-dot" style="background:#795548"></span> 施設</label></li>
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbYougu" checked> <span class="legend-dot" style="background:#607D8B"></span> 用具</label></li>
+        <li class="nav-item ms-lg-2 d-flex align-items-center gap-1">
+          <span class="legend-group-label">医療</span>
+          <button type="button" class="btn btn-sm btn-outline-secondary legend-group-btn" id="btnMedAllOn" aria-label="医療を全て表示">全</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary legend-group-btn" id="btnMedAllOff" aria-label="医療を全て非表示">無</button>
+        </li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbMedHospital"> <span class="legend-shape legend-cross" style="color:#B71C1C"></span> 病院</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbMedClinic"> <span class="legend-shape legend-square-red" style="background:#E53935"></span> 医院</label></li>
+        <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbMedDental"> <span class="legend-shape legend-diamond" style="background:#EC407A"></span> 歯科</label></li>
         <li class="nav-item ms-lg-2"><label class="legend-chip"><input type="checkbox" id="cbArea" checked> <span class="legend-square" style="border-color:#1BA466"></span> 圏域</label></li>
         <li class="nav-item"><label class="legend-chip"><input type="checkbox" id="cbCenter" checked> <span class="legend-dot" style="background:#0d7a42"></span> 地域包括</label></li>
       </ul>
@@ -63,6 +76,7 @@
   <footer id="attribution-bar">
     <span class="attr-label">出典:</span>
     <a href="https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html" target="_blank" rel="noopener">厚労省 介護サービス情報公表システム</a>(CC BY)・
+    <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html" target="_blank" rel="noopener">厚労省 医療情報ネット（ナビイ）</a>(PDL1.0)・
     <a href="https://www.city.hirakata.osaka.jp/0000037120.html" target="_blank" rel="noopener">枚方市</a>(CC BY 2.1)・
     <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">国土地理院</a>（地理院タイル 淡色／航空写真）・
     <a href="https://mierune.co.jp/" target="_blank" rel="noopener">MIERUNE</a>（MIERUNE Mono / CC BY）・

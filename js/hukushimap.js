@@ -185,6 +185,24 @@ Hukushimap.prototype.getPopupContent = function(feature) {
     return '<table>' + rows.join('') + '</table>';
   }
 
+  var cat = feature.get('category') || '';
+  if (typeof cat === 'string' && cat.indexOf('med_') === 0) {
+    addRow('種別', feature.get('category_label') || '');
+    addRow('住所', feature.get('address_full'));
+    var beds = feature.get('total_beds');
+    if (cat === 'med_hospital' && beds) {
+      addRow('病床数（合計）', beds);
+    }
+    var web = feature.get('website');
+    if (web && /^https?:\/\//i.test(web)) {
+      rows.push(
+        '<tr><th>ホームページ</th><td><a href="' + escHtml(web) +
+        '" target="_blank" rel="noopener">公式サイト</a></td></tr>'
+      );
+    }
+    return '<table>' + rows.join('') + '</table>';
+  }
+
   addRow('種別', feature.get('category'));
   addRow('サービス', feature.get('service_type'));
   addRow('住所', feature.get('address_full'));

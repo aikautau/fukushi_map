@@ -13,12 +13,15 @@ venv/
 *.swp
 
 # データパイプライン中間生成物（再取得・再生成可能）
+# - data/raw/mhlw/, data/raw/hirakata/, data/raw/mhlw_medical/ なども含めて除外
+# - data/processed/jigyosho.csv, data/processed/medical.csv も除外
 data/raw/
 data/processed/
 data/geodata/
 
 # 公開用 GeoJSON は git 管理する（data/ 直下）
 # data/jigyosho.geojson
+# data/medical.geojson
 # data/chiiki_houkatsu.geojson
 
 # 旧 QGIS 関連（不要）

@@ -1,28 +1,67 @@
 var categoryStyles = {
-  '居宅支援':       { color: '#4CAF50', label: '居宅' },
-  'デイ':           { color: '#FF9800', label: 'デイ' },
-  'リハ':           { color: '#2196F3', label: 'リハ' },
-  '訪問':           { color: '#9C27B0', label: '訪問' },
-  '多機能・密着型': { color: '#F44336', label: '多機' },
-  '短期入所':       { color: '#00BCD4', label: '短期' },
-  '施設':           { color: '#795548', label: '施設' },
-  '用具・住改':     { color: '#607D8B', label: '用具' }
+  // 介護（丸形）
+  '居宅支援':       { color: '#4CAF50', label: '居宅', shape: 'circle' },
+  'デイ':           { color: '#FF9800', label: 'デイ', shape: 'circle' },
+  'リハ':           { color: '#2196F3', label: 'リハ', shape: 'circle' },
+  '訪問':           { color: '#9C27B0', label: '訪問', shape: 'circle' },
+  '多機能・密着型': { color: '#F44336', label: '多機', shape: 'circle' },
+  '短期入所':       { color: '#00BCD4', label: '短期', shape: 'circle' },
+  '施設':           { color: '#795548', label: '施設', shape: 'circle' },
+  '用具・住改':     { color: '#607D8B', label: '用具', shape: 'circle' },
+  // 医療（RegularShape で介護と視覚的に区別。色覚多様性を考慮し色だけに頼らない）
+  'med_hospital':   { color: '#B71C1C', label: '病院', shape: 'cross' },     // 濃赤・十字
+  'med_clinic':     { color: '#E53935', label: '医院', shape: 'square' },    // 赤・四角
+  'med_dental':     { color: '#EC407A', label: '歯科', shape: 'diamond' }    // ピンク・菱形
 };
 
 var styleCache = {};
+
+function _medicalShape(kind, color) {
+  // 介護の Circle とサイズ感を揃えつつ、形状差で医療を識別できるようにする
+  if (kind === 'cross') {
+    return new ol.style.RegularShape({
+      points: 4,
+      radius: 8,
+      radius2: 0,
+      angle: 0,
+      stroke: new ol.style.Stroke({ color: color, width: 3 })
+    });
+  }
+  if (kind === 'diamond') {
+    return new ol.style.RegularShape({
+      points: 4,
+      radius: 8,
+      angle: Math.PI / 4,
+      fill: new ol.style.Fill({ color: color }),
+      stroke: new ol.style.Stroke({ color: '#fff', width: 1.5 })
+    });
+  }
+  // square
+  return new ol.style.RegularShape({
+    points: 4,
+    radius: 7,
+    angle: Math.PI / 4,
+    fill: new ol.style.Fill({ color: color }),
+    stroke: new ol.style.Stroke({ color: '#fff', width: 1.5 })
+  });
+}
 
 function facilityStyleFunction(feature) {
   var cat = feature.get('category');
   if (styleCache[cat]) return styleCache[cat];
 
-  var def = categoryStyles[cat] || { color: '#999', label: '?' };
-  styleCache[cat] = new ol.style.Style({
-    image: new ol.style.Circle({
+  var def = categoryStyles[cat] || { color: '#999', label: '?', shape: 'circle' };
+  var image;
+  if (def.shape && def.shape !== 'circle') {
+    image = _medicalShape(def.shape, def.color);
+  } else {
+    image = new ol.style.Circle({
       radius: 7,
       fill: new ol.style.Fill({ color: def.color }),
       stroke: new ol.style.Stroke({ color: '#fff', width: 1.5 })
-    })
-  });
+    });
+  }
+  styleCache[cat] = new ol.style.Style({ image: image });
   return styleCache[cat];
 }
 

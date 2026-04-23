@@ -259,9 +259,13 @@ FacilitySearch.prototype._renderSuggest = function(query, facItems, addrItem, ce
       var name = f.get('name') || '';
       var addr = f.get('address_full') || '';
       var cat = f.get('category') || '';
-      btn.innerHTML = '<span class="badge bg-secondary">施設</span> ' +
+      var isMed = (typeof cat === 'string' && cat.indexOf('med_') === 0);
+      var catLabel = isMed ? (f.get('category_label') || cat) : cat;
+      var badgeClass = isMed ? 'bg-danger' : 'bg-secondary';
+      var badgeText = isMed ? '医療' : '介護';
+      btn.innerHTML = '<span class="badge ' + badgeClass + '">' + badgeText + '</span> ' +
         '<span class="ms-1">' + escHtml(name) + '</span>' +
-        '<small class="text-muted d-block">' + escHtml(cat) + '｜' + escHtml(addr) + '</small>';
+        '<small class="text-muted d-block">' + escHtml(catLabel) + '｜' + escHtml(addr) + '</small>';
       btn.addEventListener('click', function() {
         self._pickFacility(f);
         sug.style.display = 'none';
@@ -273,11 +277,29 @@ FacilitySearch.prototype._renderSuggest = function(query, facItems, addrItem, ce
   sug.style.display = 'block';
 };
 
+// 医療カテゴリ → 対応レイヤー名／チェックボックス ID の対応
+var _MED_CAT_TO_LAYER = {
+  'med_hospital': { layer: 'layerMedHospital', cb: 'cbMedHospital' },
+  'med_clinic':   { layer: 'layerMedClinic',   cb: 'cbMedClinic' },
+  'med_dental':   { layer: 'layerMedDental',   cb: 'cbMedDental' }
+};
+
 // ── 施設を選択：ズーム＋既存popup ─────────────
 FacilitySearch.prototype._pickFacility = function(feature) {
   this._clearPin();
   var coord = feature.getGeometry().getCoordinates();
   this.map.getView().animate({ center: coord, zoom: 17, duration: 400 });
+
+  // 医療カテゴリでそのレイヤーが OFF の場合、ピンが見えないので自動で ON にする
+  var cat = feature.get('category') || '';
+  var med = _MED_CAT_TO_LAYER[cat];
+  if (med) {
+    var cb = document.getElementById(med.cb);
+    if (cb && !cb.checked) {
+      cb.checked = true;
+      this.hmap.setLayerVisible(med.layer, true);
+    }
+  }
 
   var popupEl = document.getElementById('popup');
   var popupTitle = document.getElementById('popup-title');

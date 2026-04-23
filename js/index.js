@@ -26,6 +26,7 @@
   });
 
   var categoryToLayer = {
+    // 介護 8 カテゴリ（凡例順はこの並びで固定）
     '居宅支援':       'layerKyotaku',
     'デイ':           'layerDay',
     'リハ':           'layerRiha',
@@ -33,19 +34,30 @@
     '多機能・密着型': 'layerTakinou',
     '短期入所':       'layerTanki',
     '施設':           'layerShisetsu',
-    '用具・住改':     'layerYougu'
+    '用具・住改':     'layerYougu',
+    // 医療 3 カテゴリ（介護 8 の後に続く固定順）
+    'med_hospital':   'layerMedHospital',
+    'med_clinic':     'layerMedClinic',
+    'med_dental':     'layerMedDental'
   };
 
   var cbToLayer = {
-    'cbKyotaku':  'layerKyotaku',
-    'cbDay':      'layerDay',
-    'cbRiha':     'layerRiha',
-    'cbHoumon':   'layerHoumon',
-    'cbTakinou':  'layerTakinou',
-    'cbTanki':    'layerTanki',
-    'cbShisetsu': 'layerShisetsu',
-    'cbYougu':    'layerYougu'
+    'cbKyotaku':      'layerKyotaku',
+    'cbDay':          'layerDay',
+    'cbRiha':         'layerRiha',
+    'cbHoumon':       'layerHoumon',
+    'cbTakinou':      'layerTakinou',
+    'cbTanki':        'layerTanki',
+    'cbShisetsu':     'layerShisetsu',
+    'cbYougu':        'layerYougu',
+    'cbMedHospital':  'layerMedHospital',
+    'cbMedClinic':    'layerMedClinic',
+    'cbMedDental':    'layerMedDental'
   };
+
+  // グループトグル（介護・医療の全 ON/OFF 用）
+  var careCbIds = ['cbKyotaku','cbDay','cbRiha','cbHoumon','cbTakinou','cbTanki','cbShisetsu','cbYougu'];
+  var medicalCbIds = ['cbMedHospital','cbMedClinic','cbMedDental'];
 
   // Load facility GeoJSON + geocoding dictionaries, then init FacilitySearch
   var allFeatures = [];
@@ -66,19 +78,25 @@
 
   Promise.all([
     fetchJson('data/jigyosho.geojson'),
+    fetchJson('data/medical.geojson'),
     fetchJson('data/geocoding_gaiku.json'),
     fetchJson('data/geocoding_oaza.json'),
     fetchJson('data/geocoding_towns.json')
   ]).then(function(results) {
-    var geojson = results[0];
-    var gaiku = stripMeta(results[1]);
-    var oaza = stripMeta(results[2]);
-    var towns = results[3];
+    var careGeojson = results[0];
+    var medicalGeojson = results[1];
+    var gaiku = stripMeta(results[2]);
+    var oaza = stripMeta(results[3]);
+    var towns = results[4];
 
     var format = new ol.format.GeoJSON();
-    allFeatures = format.readFeatures(geojson, {
+    var careFeatures = format.readFeatures(careGeojson, {
       featureProjection: 'EPSG:3857'
     });
+    var medicalFeatures = format.readFeatures(medicalGeojson, {
+      featureProjection: 'EPSG:3857'
+    });
+    allFeatures = careFeatures.concat(medicalFeatures);
 
     var buckets = {};
     allFeatures.forEach(function(f) {
@@ -88,8 +106,23 @@
       if (!buckets[layerName]) buckets[layerName] = [];
       buckets[layerName].push(f);
     });
-    Object.keys(buckets).forEach(function(name) {
-      hmap.addFacilityLayer(name, buckets[name]);
+
+    // 介護 8 カテゴリを先に追加し、その後で医療 3 カテゴリを追加する（凡例順＝描画順）。
+    // 医療は初期表示 OFF（navbar のチェックボックス初期値と揃える）
+    var orderedLayerNames = [
+      'layerKyotaku','layerDay','layerRiha','layerHoumon',
+      'layerTakinou','layerTanki','layerShisetsu','layerYougu',
+      'layerMedHospital','layerMedClinic','layerMedDental'
+    ];
+    var medicalLayerNames = {
+      'layerMedHospital': true, 'layerMedClinic': true, 'layerMedDental': true
+    };
+    orderedLayerNames.forEach(function(name) {
+      var feats = buckets[name] || [];
+      hmap.addFacilityLayer(name, feats);
+      if (medicalLayerNames[name]) {
+        hmap.setLayerVisible(name, false);
+      }
     });
 
     search = new FacilitySearch(hmap, allFeatures, gaiku, oaza, towns);
@@ -148,6 +181,24 @@
       hmap.setLayerVisible(cbToLayer[cbId], cb.checked);
     });
   });
+
+  // Group toggle: 介護を全 ON/OFF、医療を全 ON/OFF
+  function applyGroupToggle(cbIds, checked) {
+    cbIds.forEach(function(cbId) {
+      var cb = document.getElementById(cbId);
+      if (!cb) return;
+      cb.checked = checked;
+      hmap.setLayerVisible(cbToLayer[cbId], checked);
+    });
+  }
+  var btnCareAll = document.getElementById('btnCareAllOn');
+  var btnCareNone = document.getElementById('btnCareAllOff');
+  var btnMedAll = document.getElementById('btnMedAllOn');
+  var btnMedNone = document.getElementById('btnMedAllOff');
+  if (btnCareAll) btnCareAll.addEventListener('click', function() { applyGroupToggle(careCbIds, true); });
+  if (btnCareNone) btnCareNone.addEventListener('click', function() { applyGroupToggle(careCbIds, false); });
+  if (btnMedAll) btnMedAll.addEventListener('click', function() { applyGroupToggle(medicalCbIds, true); });
+  if (btnMedNone) btnMedNone.addEventListener('click', function() { applyGroupToggle(medicalCbIds, false); });
 
   // Area polygon toggle
   document.getElementById('cbArea').addEventListener('change', function() {

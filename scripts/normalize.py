@@ -1,15 +1,23 @@
 """厚労省CSV群と枚方市Excelを統合し、枚方市の事業所一覧を生成する。
 
-- 厚労省CSV（`data/raw/mhlw/jigyosho_*.csv`）: 市区町村コード 272108（枚方市、JIS）で絞り込み
-- 枚方市Excel（`data/raw/hirakata/272104_care_service_*.xlsx`）: 差分・穴埋め用
-- 事業所番号＋事業所名で dedupe（厚労省=Aを優先）。同一事業所で複数サービスは 1 行に集約
-- サービス種類を 8 カテゴリに集約し、事業所ごとに代表カテゴリ（優先順位順）を付与
-- `data/processed/jigyosho.csv` に出力
+- 介護（既定・引数なし / --target care）
+  - 厚労省CSV（`data/raw/mhlw/jigyosho_*.csv`）: 市区町村コード 272108（枚方市、JIS）で絞り込み
+  - 枚方市Excel（`data/raw/hirakata/272104_care_service_*.xlsx`）: 差分・穴埋め用
+  - 事業所番号＋事業所名で dedupe（厚労省=Aを優先）。同一事業所で複数サービスは 1 行に集約
+  - サービス種類を 8 カテゴリに集約し、事業所ごとに代表カテゴリ（優先順位順）を付与
+  - `data/processed/jigyosho.csv` に出力
+- 医療（--target medical）
+  - 厚労省 医療情報ネット（ナビイ）施設票 CSV を 3 カテゴリ（病院／一般診療所／歯科診療所）に整理
+  - 座標は CSV 同梱のためジオコーディング不要
+  - `data/processed/medical.csv` と公開用 `data/medical.geojson` を出力
 """
 
 from __future__ import annotations
 
+import argparse
+import csv
 import glob
+import json
 import re
 import sys
 from datetime import datetime, timedelta, timezone
@@ -20,7 +28,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 RAW_MHLW = ROOT / "data" / "raw" / "mhlw"
 RAW_HIRAKATA = ROOT / "data" / "raw" / "hirakata"
+RAW_MEDICAL = ROOT / "data" / "raw" / "mhlw_medical"
 OUT_CSV = ROOT / "data" / "processed" / "jigyosho.csv"
+OUT_MEDICAL_CSV = ROOT / "data" / "processed" / "medical.csv"
+OUT_MEDICAL_GEOJSON = ROOT / "data" / "medical.geojson"
 
 JST = timezone(timedelta(hours=9))
 
@@ -320,7 +331,7 @@ def merge_dedupe(frames: list[pd.DataFrame]) -> pd.DataFrame:
     return pd.DataFrame(grouped_rows)
 
 
-def main() -> int:
+def run_care() -> int:
     mhlw_df = load_mhlw(RAW_MHLW)
     print(f"[mhlw] 枚方市: {len(mhlw_df)} 行")
 
@@ -363,6 +374,211 @@ def main() -> int:
     uniq = merged.drop_duplicates(subset=["jigyosho_id"]).shape[0]
     print(f"\nユニーク事業所数（事業所番号ベース）: {uniq}")
     return 0
+
+
+# ============================================================
+# 医療（医療情報ネット / ナビイ）
+# ============================================================
+
+# kind -> (CSV ファイル名, カテゴリ内部キー, 表示ラベル)
+# 内部キーは介護側 CATEGORY_BY_CODE と重ならないよう med_ プレフィックス固定。
+MEDICAL_SOURCES: list[tuple[str, str, str]] = [
+    ("hospital_facility_info.csv", "med_hospital", "病院"),
+    ("clinic_facility_info.csv", "med_clinic", "診療所（医科）"),
+    ("dental_facility_info.csv", "med_dental", "歯科診療所"),
+]
+
+# 医療情報ネット CSV の必須列
+_MED_REQ_COLS = (
+    "ID",
+    "正式名称",
+    "都道府県コード",
+    "市区町村コード",
+    "所在地",
+    "所在地座標（緯度）",
+    "所在地座標（経度）",
+)
+
+
+def _combined_city_code(pref_code: str, city_code: str) -> str:
+    """医療情報ネットの 2 列分離コード（例: "27" + "210"）を 5 桁結合。"""
+    p = str(pref_code).strip().zfill(2) if str(pref_code).strip() else ""
+    c = str(city_code).strip() if str(city_code).strip() else ""
+    if not p or not c:
+        return ""
+    # 市区町村コードは 3 桁 or 4 桁（末尾にチェックデジットが付いた 6 桁を含む実装があるため）
+    # 枚方市は "210" なので先頭 3 桁で比較できるよう結合する
+    return p + c.zfill(3)
+
+
+def load_medical_csv(path: Path, category: str, label: str) -> pd.DataFrame:
+    """医療情報ネット施設票 CSV を読み込み、枚方市分に絞る。"""
+    # 大きな CSV（数万〜十万行）。必須列のみ使えばメモリに収まる
+    # BOM 付き UTF-8 + CRLF。pandas は utf-8-sig で BOM を剥がす
+    df = pd.read_csv(path, encoding="utf-8-sig", dtype=str, keep_default_na=False)
+
+    missing = [c for c in _MED_REQ_COLS if c not in df.columns]
+    if missing:
+        print(f"[warn] {path.name}: 列欠落 {missing}", file=sys.stderr)
+        return pd.DataFrame()
+
+    # 市区町村コード照合（分離列を結合して HIRAKATA_CITY_CODES と突合）
+    combined = [
+        _combined_city_code(p, c)
+        for p, c in zip(df["都道府県コード"], df["市区町村コード"])
+    ]
+    df = df.assign(_combined=combined)
+    mask_code = df["_combined"].isin(HIRAKATA_CITY_CODES)
+    # 保険として市町村名プレフィックス「枚方市」も OR 条件で受ける
+    mask_name = df["所在地"].fillna("").str.contains("枚方市", na=False)
+    df = df[mask_code | mask_name].copy()
+
+    if df.empty:
+        return df
+
+    # 緯度経度の float 化（空文字・不正値は NaN）
+    lat = pd.to_numeric(df["所在地座標（緯度）"], errors="coerce")
+    lon = pd.to_numeric(df["所在地座標（経度）"], errors="coerce")
+
+    website_col = (
+        df["案内用ホームページアドレス"] if "案内用ホームページアドレス" in df.columns
+        else pd.Series([""] * len(df), index=df.index)
+    )
+    total_bed_col = (
+        df["合計病床数"] if "合計病床数" in df.columns
+        else pd.Series([""] * len(df), index=df.index)
+    )
+
+    fetched = _file_fetched_at(path)
+    return pd.DataFrame(
+        {
+            "facility_id": df["ID"].str.strip(),
+            "name": df["正式名称"].str.strip(),
+            "category": category,
+            "category_label": label,
+            "address_full": df["所在地"].str.strip(),
+            "lat": lat,
+            "lon": lon,
+            "website": website_col.fillna("").astype(str).str.strip(),
+            "total_beds": total_bed_col.fillna("").astype(str).str.strip(),
+            "source": "mhlw_navii",
+            "fetched_at": fetched,
+        }
+    ).reset_index(drop=True)
+
+
+def dedupe_medical(df: pd.DataFrame) -> pd.DataFrame:
+    """医療情報ネット ID 単独で dedupe。併設歯科（医科＋歯科）は別 ID なので自然に残る。"""
+    if df.empty:
+        return df
+    df = df[df["facility_id"].fillna("").str.strip() != ""]
+    return df.drop_duplicates(subset=["facility_id"], keep="first").reset_index(drop=True)
+
+
+def medical_to_geojson(df: pd.DataFrame, out_path: Path) -> int:
+    """座標有効な行のみ GeoJSON に書き出す。戻り値は書き出した features 数。"""
+    geo = df.dropna(subset=["lat", "lon"])
+    features = []
+    for _, row in geo.iterrows():
+        props = {
+            "facility_id": row["facility_id"],
+            "name": row["name"],
+            "category": row["category"],
+            "category_label": row["category_label"],
+            "address_full": row["address_full"],
+            "website": row.get("website", ""),
+            "total_beds": row.get("total_beds", ""),
+        }
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [float(row["lon"]), float(row["lat"])],
+                },
+                "properties": props,
+            }
+        )
+    geojson = {"type": "FeatureCollection", "features": features}
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False, indent=2)
+    return len(features)
+
+
+def run_medical() -> int:
+    frames: list[pd.DataFrame] = []
+    for filename, cat, label in MEDICAL_SOURCES:
+        path = RAW_MEDICAL / filename
+        if not path.exists():
+            print(
+                f"[warn] {path} が見つかりません。`python scripts/fetch.py --target medical` を先に実行してください。",
+                file=sys.stderr,
+            )
+            continue
+        sub = load_medical_csv(path, cat, label)
+        print(f"[medical] {label}: {len(sub)} 行")
+        frames.append(sub)
+
+    if not frames:
+        print("[error] 医療データが 1 件も読めませんでした。", file=sys.stderr)
+        return 1
+
+    df = pd.concat(frames, ignore_index=True)
+    before = len(df)
+    df = dedupe_medical(df)
+    after = len(df)
+    if before != after:
+        print(f"[dedupe] {before} → {after} 行（ID 重複除去）")
+
+    OUT_MEDICAL_CSV.parent.mkdir(parents=True, exist_ok=True)
+    columns = [
+        "facility_id",
+        "name",
+        "category",
+        "category_label",
+        "address_full",
+        "lat",
+        "lon",
+        "website",
+        "total_beds",
+        "source",
+        "fetched_at",
+    ]
+    df[columns].to_csv(
+        OUT_MEDICAL_CSV, index=False, encoding="utf-8", quoting=csv.QUOTE_MINIMAL
+    )
+    print(f"\n出力: {OUT_MEDICAL_CSV.relative_to(ROOT)}  ({len(df)} 行)")
+
+    print("\nカテゴリ別件数:")
+    for cat, n in df["category"].value_counts().sort_index().items():
+        print(f"  {cat}: {n}")
+
+    # 座標有効率
+    geo_ok = df["lat"].notna() & df["lon"].notna()
+    print(f"\n座標有効: {int(geo_ok.sum())} / {len(df)}")
+
+    n = medical_to_geojson(df, OUT_MEDICAL_GEOJSON)
+    print(f"GeoJSON 出力: {OUT_MEDICAL_GEOJSON.relative_to(ROOT)}  ({n} features)")
+    return 0
+
+
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--target",
+        choices=("care", "medical"),
+        default="care",
+        help="処理対象。care=介護（既定・既存挙動）, medical=医療情報ネット",
+    )
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = _parse_args()
+    if args.target == "care":
+        return run_care()
+    return run_medical()
 
 
 if __name__ == "__main__":
