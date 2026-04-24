@@ -9,9 +9,9 @@ function Hukushimap() {
 }
 
 Hukushimap.prototype.generate = function(center, zoom) {
-  var gsiAttr = '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>';
-  var mierAttr = "Maptiles by <a href='https://mierune.co.jp/' target='_blank' rel='noopener'>MIERUNE</a>, under CC BY. " +
-                 "Data by <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap contributors</a>, under ODbL.";
+  var gsiAttr = '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">国土地理院</a>';
+  var mierAttr = "Maptiles by <a href='https://mierune.co.jp/' target='_blank' rel='noopener noreferrer'>MIERUNE</a>, under CC BY. " +
+                 "Data by <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener noreferrer'>OpenStreetMap contributors</a>, under ODbL.";
 
   this.baseLayers = {
     'cyberjapan-pale': new ol.layer.Tile({
@@ -197,7 +197,7 @@ Hukushimap.prototype.getPopupContent = function(feature) {
     if (web && /^https?:\/\//i.test(web)) {
       rows.push(
         '<tr><th>ホームページ</th><td><a href="' + escHtml(web) +
-        '" target="_blank" rel="noopener">公式サイト</a></td></tr>'
+        '" target="_blank" rel="noopener noreferrer">公式サイト</a></td></tr>'
       );
     }
     return '<table>' + rows.join('') + '</table>';
